@@ -1,0 +1,7 @@
+# Este documento és una pequeña guia donde iré apuntando diversas cosas que tengo que tener en cuenta a futuro cuando desarrolle la pagina web
+
+
+## A nivel de FRONT
+
+## A nivel de BACK
+### http://localhost:8000/auth/github/callback aquí devuelve la data del user, tengo que configurarlo en el back 

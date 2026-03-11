@@ -4,5 +4,6 @@
 ## A nivel de FRONT
 
 ## A nivel de BACK
+
 ### http://localhost:8000/auth/github/callback aquí devuelve la data del user, tengo que configurarlo en el back 
-### guardar url de cada imagen como: "https://github.com/CarlossMartinez/DADOS-DE-NESUS/tree/main/images"
+### guardar url de cada imagen como: "https://raw.githubusercontent.com/CarlossMartinez/DADOS-DE-NESUS/main/images/<name.<extension>>"

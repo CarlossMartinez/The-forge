@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('characters', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 50);
+            $table->string('description', 1000);
+            $table->integer('level')->default(1);
+            $table->integer('experience')->default(0);
+            $table->integer('hp_max');
+            $table->integer('hp_current');
+            $table->integer('hp_temp')->default(0);
+            $table->foreignId('user_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('subrace_id')->nullable()->constrained('subraces')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('background_id')->nullable()->constrained('backgrounds')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('class_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('subclass_id')->nullable()->constrained('subclasses')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('characters');
+    }
+};

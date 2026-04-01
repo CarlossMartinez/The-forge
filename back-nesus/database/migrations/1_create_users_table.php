@@ -11,11 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+        
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->Integer('github_id')->unique();
-            $table->string('username')->unique();
-            $table->string('email')->unique();
+            $table->string('username', 30)->unique();
+            $table->string('email', 100)->unique();
             $table->foreignId('role_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->rememberToken();
             $table->timestamps();
@@ -37,9 +44,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');

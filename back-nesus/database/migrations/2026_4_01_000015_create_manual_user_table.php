@@ -11,22 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('spells', function (Blueprint $table) {
+        Schema::create('manual_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('description', 1000);
-            $table->Integer('level', 20);
-            $table->string('school', 50);
-            $table->string('casting_time', 50);
-            $table->string('duration', 50);
-            $table->string('range', 50);
+            $table->boolean('is_owner')->default(false);
+            $table->boolean('enabled')->default(false);
+            $table->foreign('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('spells');
+        Schema::dropIfExists('manueal_user');
     }
-};
+}; 

@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('manuals', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('name', 50)->unique();
             $table->string('description', 1000);
-            $table->Integer('hit_die', 20);
-            $table->boolean('spellcaster');
-            $table->string('spellcasting_ability', 50)->nullable();
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->string('system', 50)->default('DnD 5e');
+            $table->enum('manual_type', ['Hombrew', 'Oficial', 'Premium'])->default('Hombrew');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('manuals');
     }
 };

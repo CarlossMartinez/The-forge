@@ -11,24 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('spells', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
             $table->string('description', 1000);
-            $table->string('type', 50);
-            $table->string('rarity', 50);
-            $table->float('weight')->nullable();
-            $table->float('value')->nullable();
+            $table->Integer('level');
+            $table->string('school', 50);
+            $table->string('casting_time', 50);
+            $table->string('duration', 50);
+            $table->string('range', 50);
             $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('spells');
     }
 };

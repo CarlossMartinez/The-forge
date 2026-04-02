@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('description', 1000);
-            $table->integer('level')->default(1);
+            $table->integer('level')->default(1)->check('level >= 0 AND level <= 20');
             $table->integer('experience')->default(0);
             $table->integer('hp_max');
             $table->integer('hp_current');

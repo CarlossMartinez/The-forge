@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subclasses', function (Blueprint $table) {
+        Schema::create('clase_spell', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('description', 1000);
             $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->timestamps();
+            $table->foreignId('spell_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subclasses');
+        Schema::dropIfExists('clase_spell');
     }
-};
+}; 

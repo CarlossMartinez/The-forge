@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subclasses', function (Blueprint $table) {
+        Schema::create('clase_passive', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('description', 1000);
+            $table->integer('level_required')->default(1)->check('level_required > 0');
             $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->timestamps();
+            $table->foreignId('passive_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subclasses');
+        Schema::dropIfExists('clase_passive');
     }
-};
+}; 

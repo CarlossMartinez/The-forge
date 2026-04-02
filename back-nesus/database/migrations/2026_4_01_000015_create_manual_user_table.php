@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('is_owner')->default(false);
             $table->boolean('enabled')->default(false);
-            $table->foreign('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manueal_user');
+        Schema::dropIfExists('manual_user');
     }
 }; 

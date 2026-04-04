@@ -23,6 +23,7 @@ return new class extends Migration
             $table->Integer('github_id')->unique();
             $table->string('username', 30)->unique();
             $table->string('email', 100)->unique();
+            $table->string('image', 255)->nullable();
             $table->foreignId('role_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->rememberToken();
             $table->timestamps();

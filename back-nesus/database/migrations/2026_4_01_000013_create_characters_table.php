@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('hp_max');
             $table->integer('hp_current');
             $table->integer('hp_temp')->default(0);
+            $table->string('alignment', 20);
+            $table->string('image', 255)->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('subrace_id')->nullable()->constrained('subraces')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('background_id')->nullable()->constrained('backgrounds')->onUpdate('restrict')->onDelete('restrict');

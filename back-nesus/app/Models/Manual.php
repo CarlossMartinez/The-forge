@@ -17,7 +17,7 @@ class Manual extends Model
 
     public function classes()
     {
-        return $this->hasMany(Clas::class, 'manual_id');
+        return $this->hasMany(Clase::class, 'manual_id');
     }
 
     public function subclasses()

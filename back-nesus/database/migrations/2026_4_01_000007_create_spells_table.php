@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('casting_time', 50);
             $table->string('duration', 50);
             $table->string('range', 50);
+            $table->string('components', 100);
             $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });

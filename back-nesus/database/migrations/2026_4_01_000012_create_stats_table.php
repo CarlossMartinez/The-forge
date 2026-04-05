@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('description', 1000);
             $table->timestamps();
+            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
 

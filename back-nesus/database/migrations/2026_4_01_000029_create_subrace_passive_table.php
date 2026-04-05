@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('subrace_passive', function (Blueprint $table) {
             $table->id();
+            $table->integer('level_required')->default(1);
             $table->foreignId('subrace_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('passive_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });

@@ -22,13 +22,13 @@ class Background extends Model
         return $this->belongsTo(Manual::class);
     }
 
-    public function characters()
+    public function character()
     {
         return $this->hasMany(Character::class);
     }
 
     public function proeficiencies()
     {
-        return $this->belongsToMany(Proeficiencie::class, 'background_proficiency');
+        return $this->belongsToMany(Proeficiencie::class, 'background_proficiencie');
     }
 }

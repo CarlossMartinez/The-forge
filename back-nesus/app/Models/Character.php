@@ -76,7 +76,7 @@ class Character extends Model
     }
     public function proeficiencies()
     {
-        return $this->belongsToMany(Proeficiencie::class, 'character_proeficiency');
+        return $this->belongsToMany(Proeficiencie::class, 'character_proeficiencie');
     }
 
     public function stats(){
@@ -93,5 +93,9 @@ class Character extends Model
 
     public function spells(){
         return $this->belongsToMany(Spell::class, 'character_spells')->withPivot('is_prepared'); 
+    }
+
+    public function folders(){
+        return $this->belongsToMany(Folder::class, 'character_folders');
     }
 }

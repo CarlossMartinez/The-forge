@@ -66,6 +66,10 @@ class User extends Authenticatable
             ->withPivot('enabled, is_owner');
     }
     
+    public function folders()
+    {
+        return $this->hasMany(Folder::class);
+    }
 
     public function isAdmin(): bool
     {

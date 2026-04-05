@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('passives', function (Blueprint $table) {
+        Schema::create('clase_proeficiencie', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('description', 1000);
-            $table->timestamps();
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('proeficiencie_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('passives');
+        Schema::dropIfExists('clase_proeficiencie');
     }
-};
+}; 

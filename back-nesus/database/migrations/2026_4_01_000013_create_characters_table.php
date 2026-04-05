@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('alignment', 20);
             $table->string('image', 255)->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('race_id')->nullable()->constrained('races')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('subrace_id')->nullable()->constrained('subraces')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('background_id')->nullable()->constrained('backgrounds')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');

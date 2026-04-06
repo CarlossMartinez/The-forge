@@ -35,6 +35,16 @@ class DatabaseSeeder extends Seeder
             ProeficiencieSeeder::class,
             
             StatSeeder::class,
-]);
+
+            FeatSeeder::class,
+
+            SpellSeeder::class,
+
+            ItemSeeder::class,
+
+            BackgroundSeeder::class,
+
+            FolderSeeder::class,
+        ]);
     }
 }

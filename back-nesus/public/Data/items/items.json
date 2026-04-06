@@ -1,4 +1,4 @@
-[
+          [
   { "id": 1, "name": "Longsword",      "description": "A versatile sword dealing 1d8 or 1d10 slashing damage.", "type": "Weapon",        "rarity": "Common",    "weight": 3.0,  "value": 15.0,    "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
   { "id": 2, "name": "Chain Mail",     "description": "AC 16 armor made of interlocking metal rings. Stealth disadvantage.", "type": "Armor",         "rarity": "Common",    "weight": 55.0, "value": 75.0,    "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
   { "id": 3, "name": "Potion of Healing","description": "Regain 2d4+2 hit points when consumed.", "type": "Potion",        "rarity": "Common",    "weight": 0.5,  "value": 50.0,    "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },

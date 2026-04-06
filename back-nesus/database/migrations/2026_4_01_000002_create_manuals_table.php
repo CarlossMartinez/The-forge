@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('manuals', function (Blueprint $table) {
-            $table->id();
+            $table->string('manual_code')->primary();
             $table->string('name', 50)->unique();
             $table->string('description', 1000);
             $table->string('system', 50)->default('DnD 5e');

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Light Armor",
+    "description": "Proficiency with light armor, including padded, leather, and studded leather.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 2,
+    "name": "Medium Armor",
+    "description": "Proficiency with medium armor, including hide, chain shirt, and breastplate.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 3,
+    "name": "Heavy Armor",
+    "description": "Proficiency with heavy armor, including ring mail, chain mail, splint, and plate.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 4,
+    "name": "Simple Weapons",
+    "description": "Proficiency with simple weapons such as clubs, daggers, and handaxes.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 5,
+    "name": "Martial Weapons",
+    "description": "Proficiency with martial weapons such as longswords, rapiers, and greataxes.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 6,
+    "name": "Stealth",
+    "description": "Proficiency in the Stealth skill, used to conceal yourself from enemies.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 7,
+    "name": "Arcana",
+    "description": "Proficiency in Arcana, covering knowledge of spells, magic items, and planar beings.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 8,
+    "name": "Perception",
+    "description": "Proficiency in Perception, used to spot, hear, or detect the presence of something.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  }
+]

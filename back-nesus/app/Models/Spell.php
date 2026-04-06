@@ -20,7 +20,7 @@ class Spell extends Model
         'range',
         'components',
         'duration',
-        'manual_id',
+        'manual_code',
     ];
 
     public function manual()

@@ -14,7 +14,7 @@ class Race extends Model
     protected $fillable = [
         'name',
         'description',
-        'manual_id',
+        'manual_code',
     ];
 
     public function manual()

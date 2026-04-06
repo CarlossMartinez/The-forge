@@ -1,0 +1,8 @@
+[
+  { "spell_level": 1, "slots_used": 2, "character_id": 2 },
+  { "spell_level": 2, "slots_used": 1, "character_id": 2 },
+  { "spell_level": 3, "slots_used": 0, "character_id": 2 },
+  { "spell_level": 4, "slots_used": 0, "character_id": 2 },
+  { "spell_level": 1, "slots_used": 1, "character_id": 3 },
+  { "spell_level": 2, "slots_used": 0, "character_id": 3 }
+]

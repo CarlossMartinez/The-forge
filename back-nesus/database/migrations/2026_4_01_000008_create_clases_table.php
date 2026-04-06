@@ -18,7 +18,7 @@ return new class extends Migration
             $table->Integer('hit_die');
             $table->boolean('spellcaster');
             $table->string('spellcasting_ability', 50)->nullable();
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "character_id": 1, "proeficiencie_id": 1 },
+  { "id": 2, "character_id": 1, "proeficiencie_id": 2 },
+  { "id": 3, "character_id": 1, "proeficiencie_id": 3 },
+  { "id": 4, "character_id": 1, "proeficiencie_id": 4 },
+  { "id": 5, "character_id": 1, "proeficiencie_id": 5 },
+  { "id": 6, "character_id": 2, "proeficiencie_id": 4 },
+  { "id": 7, "character_id": 2, "proeficiencie_id": 7 },
+  { "id": 8, "character_id": 3, "proeficiencie_id": 1 },
+  { "id": 9, "character_id": 3, "proeficiencie_id": 4 },
+  { "id": 10,"character_id": 3, "proeficiencie_id": 8 }
+]

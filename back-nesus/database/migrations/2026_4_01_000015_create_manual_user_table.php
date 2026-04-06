@@ -16,7 +16,7 @@ return new class extends Migration
             $table->boolean('is_owner')->default(false);
             $table->boolean('enabled')->default(false);
             $table->foreignId('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
         });
     }
 

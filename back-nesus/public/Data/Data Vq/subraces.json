@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "High Elf",
+    "description": "As a high elf, you have a keen mind and a mastery of at least the basics of magic.",
+    "race_id": 2,
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 2,
+    "name": "Wood Elf",
+    "description": "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily.",
+    "race_id": 2,
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 3,
+    "name": "Hill Dwarf",
+    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
+    "race_id": 3,
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 4,
+    "name": "Mountain Dwarf",
+    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain.",
+    "race_id": 3,
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 5,
+    "name": "Lightfoot Halfling",
+    "description": "As a lightfoot halfling, you can easily hide from notice, even using other people as cover.",
+    "race_id": 4,
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  }
+]

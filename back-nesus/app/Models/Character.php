@@ -33,7 +33,7 @@ class Character extends Model
         'background_id',
         'clase_id',
         'subclass_id',
-        'manual_id',
+        'manual_code',
     ];
 
     public function user()

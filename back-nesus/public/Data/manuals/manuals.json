@@ -1,0 +1,24 @@
+[
+  {
+    "code": "PHB_5E",
+    "name": "Player's Handbook",
+    "description": "The core rulebook for Dungeons & Dragons 5th Edition, containing rules for character creation and advancement.",
+    "system": "DnD 5e",
+    "manual_type": "Oficial"
+
+  },
+  {
+    "code": "XGE_5E",
+    "name": "Xanathar's Guide to Everything",
+    "description": "An expansion manual with new subclasses, spells, and rules options.",
+    "system": "DnD 5e",
+    "manual_type": "Oficial"
+  },
+  {
+    "code": "CHRoF",
+    "name": "Custom Homebrew: Realms of Eternity",
+    "description": "A homebrew expansion adding new races, classes, and lore for the Realms of Eternity campaign setting.",
+    "system": "DnD 5e",
+    "manual_type": "Hombrew"
+  }
+]

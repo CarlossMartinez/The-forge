@@ -1,0 +1,6 @@
+[
+  { "id": 1, "character_id": 1, "feat_id": 2 },
+  { "id": 2, "character_id": 1, "feat_id": 1 },
+  { "id": 3, "character_id": 2, "feat_id": 3 },
+  { "id": 4, "character_id": 3, "feat_id": 4 }
+]

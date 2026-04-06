@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('duration', 50);
             $table->string('range', 50);
             $table->string('components', 100);
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('description', 1000);
             $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('manual_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

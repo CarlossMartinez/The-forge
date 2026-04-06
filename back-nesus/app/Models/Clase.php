@@ -17,7 +17,7 @@ class Clase extends Model
         'hit_die',
         'spellcaster',
         'spellcasting_ability',
-        'manual_id',
+        'manual_code',
     ];
 
     public function manual()

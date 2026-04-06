@@ -18,7 +18,7 @@ class Item extends Model
         'rarity',
         'wheight',
         'valie',
-        'manual_id',
+        'manual_code',
     ];
 
     public function manual()

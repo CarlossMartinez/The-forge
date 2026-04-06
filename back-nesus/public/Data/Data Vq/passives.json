@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Darkvision",
+    "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 2,
+    "name": "Fey Ancestry",
+    "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 3,
+    "name": "Stonecunning",
+    "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient and add double your proficiency bonus.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 4,
+    "name": "Second Wind",
+    "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. You can use a bonus action to regain 1d10 + fighter level hit points.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 5,
+    "name": "Action Surge",
+    "description": "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 6,
+    "name": "Sneak Attack",
+    "description": "Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 7,
+    "name": "Spellcasting",
+    "description": "You have the ability to cast spells using your spellcasting ability. You have a spell list determined by your class.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 8,
+    "name": "Lucky",
+    "description": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+    "manual_id": 1,
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  }
+]

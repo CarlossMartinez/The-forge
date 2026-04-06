@@ -1,0 +1,5 @@
+[
+  { "id": 1, "subclass_id": 1, "passive_id": 4 },
+  { "id": 2, "subclass_id": 3, "passive_id": 7 },
+  { "id": 3, "subclass_id": 6, "passive_id": 7 }
+]

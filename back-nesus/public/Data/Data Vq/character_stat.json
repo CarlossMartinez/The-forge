@@ -1,0 +1,20 @@
+[
+  { "id": 1,  "value": 16, "character_id": 1, "stat_id": 1 },
+  { "id": 2,  "value": 12, "character_id": 1, "stat_id": 2 },
+  { "id": 3,  "value": 14, "character_id": 1, "stat_id": 3 },
+  { "id": 4,  "value": 10, "character_id": 1, "stat_id": 4 },
+  { "id": 5,  "value": 11, "character_id": 1, "stat_id": 5 },
+  { "id": 6,  "value": 13, "character_id": 1, "stat_id": 6 },
+  { "id": 7,  "value": 8,  "character_id": 2, "stat_id": 1 },
+  { "id": 8,  "value": 14, "character_id": 2, "stat_id": 2 },
+  { "id": 9,  "value": 12, "character_id": 2, "stat_id": 3 },
+  { "id": 10, "value": 18, "character_id": 2, "stat_id": 4 },
+  { "id": 11, "value": 13, "character_id": 2, "stat_id": 5 },
+  { "id": 12, "value": 10, "character_id": 2, "stat_id": 6 },
+  { "id": 13, "value": 14, "character_id": 3, "stat_id": 1 },
+  { "id": 14, "value": 10, "character_id": 3, "stat_id": 2 },
+  { "id": 15, "value": 16, "character_id": 3, "stat_id": 3 },
+  { "id": 16, "value": 12, "character_id": 3, "stat_id": 4 },
+  { "id": 17, "value": 15, "character_id": 3, "stat_id": 5 },
+  { "id": 18, "value": 11, "character_id": 3, "stat_id": 6 }
+]

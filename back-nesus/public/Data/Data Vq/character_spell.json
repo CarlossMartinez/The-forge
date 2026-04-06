@@ -1,0 +1,8 @@
+[
+  { "id": 1, "is_prepared": true,  "character_id": 2, "spell_id": 1 },
+  { "id": 2, "is_prepared": true,  "character_id": 2, "spell_id": 2 },
+  { "id": 3, "is_prepared": false, "character_id": 2, "spell_id": 4 },
+  { "id": 4, "is_prepared": true,  "character_id": 2, "spell_id": 5 },
+  { "id": 5, "is_prepared": true,  "character_id": 3, "spell_id": 3 },
+  { "id": 6, "is_prepared": false, "character_id": 3, "spell_id": 4 }
+]

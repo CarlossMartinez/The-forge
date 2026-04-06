@@ -21,23 +21,19 @@ class ClaseSeeder extends Seeder
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
-            DB::table('clases')->insert([
-                'id' => $this->LastCharId() + $data['id'],
-                'name' => $data['nombre'],
-                'descripction' => $data['descripction'],
-                'hit_die' => $data['hit_die'],
-                'spellcaster' => $data['spellcaster'],
-                'spellcasting_ability' => $data['spellcasting_ability'],
-                'manual_id' => $data['manual_id'],
+            foreach ($data as $clase) {
+                DB::table('clases')->insertOrIgnore([
+                'id' => $clase['id'],
+                'name' => $clase['name'],
+                'description' => $clase['description'],
+                'hit_die' => $clase['hit_die'],
+                'spellcaster' => $clase['spellcaster'],
+                'spellcasting_ability' => $clase['spellcasting_ability'],
+                'manual_code' => $clase['manual_code'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+            }
         }
-    }
-
-    public function LastCharId()
-    {
-        $last = DB::table('clases')->latest('id')->first();
-        return $last ? $last->id : 0;
     }
 }

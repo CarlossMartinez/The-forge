@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('description', 1000);
-            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->string('manual_code');
+            $table->foreign('manual_code')
+                ->references('manual_code')
+                ->on('manuals')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }

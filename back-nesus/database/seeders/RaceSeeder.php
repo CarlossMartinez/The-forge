@@ -8,26 +8,25 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 
-class ManualSeeder extends Seeder
+class RaceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $files = File::files(public_path('data/manuals'));
+        $files = File::files(public_path('data/races'));
         
         if(!$files) return;
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
-            foreach ($data as $manual) {
-                DB::table('manuals')->insertOrIgnore([
-                    'manual_code' => $manual['manual_code'],
-                    'name' => $manual['name'],
-                    'description' => $manual['description'],
-                    'system' => $manual['system'],
-                    'manual_type' => $manual['manual_type'],
+            foreach ($data as $race) {
+                DB::table('races')->insertOrIgnore([
+                    'id' => $race['id'],
+                    'manual_code' => $race['manual_code'],
+                    'name' => $race['name'],
+                    'description' => $race['description'],
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

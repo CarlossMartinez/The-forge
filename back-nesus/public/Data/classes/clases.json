@@ -6,7 +6,7 @@
     "hit_die": 10,
     "spellcaster": false,
     "spellcasting_ability": null,
-    "manual_code": 1,
+    "manual_code":"PHB_5E",
     "created_at": "2024-01-01T00:00:00",
     "updated_at": "2024-01-01T00:00:00"
   },
@@ -17,7 +17,7 @@
     "hit_die": 6,
     "spellcaster": true,
     "spellcasting_ability": "Intelligence",
-    "manual_code": 1,
+    "manual_code":"PHB_5E",
     "created_at": "2024-01-01T00:00:00",
     "updated_at": "2024-01-01T00:00:00"
   },
@@ -28,7 +28,7 @@
     "hit_die": 8,
     "spellcaster": false,
     "spellcasting_ability": null,
-    "manual_code": 1,
+    "manual_code":"PHB_5E",
     "created_at": "2024-01-01T00:00:00",
     "updated_at": "2024-01-01T00:00:00"
   },
@@ -39,7 +39,7 @@
     "hit_die": 8,
     "spellcaster": true,
     "spellcasting_ability": "Wisdom",
-    "manual_code": 1,
+    "manual_code":"PHB_5E",
     "created_at": "2024-01-01T00:00:00",
     "updated_at": "2024-01-01T00:00:00"
   },
@@ -50,7 +50,18 @@
     "hit_die": 10,
     "spellcaster": true,
     "spellcasting_ability": "Wisdom",
-    "manual_code": 1,
+    "manual_code":"PHB_5E",
+    "created_at": "2024-01-01T00:00:00",
+    "updated_at": "2024-01-01T00:00:00"
+  },
+  {
+    "id": 6,
+    "name": "Brujillo",
+    "description": "Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization.",
+    "hit_die": 10,
+    "spellcaster": true,
+    "spellcasting_ability": "Wisdom",
+    "manual_code":"XGE_5E",
     "created_at": "2024-01-01T00:00:00",
     "updated_at": "2024-01-01T00:00:00"
   }

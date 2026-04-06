@@ -17,7 +17,24 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ManualSeeder::class,
+           
             ClaseSeeder::class,
-        ]);
+
+            SubclasseSeeder::class,
+
+            RoleSeeder::class,
+
+            UserSeeder::class,
+
+            RaceSeeder::class,
+
+            SubraceSeeder::class,
+
+            PassiveSeeder::class,
+
+            ProeficiencieSeeder::class,
+            
+            StatSeeder::class,
+]);
     }
 }

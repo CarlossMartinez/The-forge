@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Alert",                "description": "Always on the lookout for danger. +5 to initiative, cant be surprised while conscious.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 2, "name": "Great Weapon Master",  "description": "Before a melee attack with a heavy weapon, take -5 to hit for +10 damage.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 3, "name": "War Caster",           "description": "Advantage on Constitution saves to maintain concentration on spells.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 4, "name": "Lucky",               "description": "You have 3 luck points per long rest to reroll attack rolls, ability checks, or saving throws.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 5, "name": "Sharpshooter",        "description": "Ranged attacks ignore half and three-quarter cover. Take -5 to hit for +10 damage.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" }
+]

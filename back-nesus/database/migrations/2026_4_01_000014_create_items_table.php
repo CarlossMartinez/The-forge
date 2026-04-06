@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('rarity', 50);
             $table->float('weight')->nullable();
             $table->float('value')->nullable();
-            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->string('manual_code');
+            $table->foreign('manual_code')
+                ->references('manual_code')
+                ->on('manuals')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }

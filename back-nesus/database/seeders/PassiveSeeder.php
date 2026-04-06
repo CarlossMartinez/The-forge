@@ -8,26 +8,25 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 
-class ManualSeeder extends Seeder
+class PassiveSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $files = File::files(public_path('data/manuals'));
+        $files = File::files(public_path('data/passives'));
         
         if(!$files) return;
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
-            foreach ($data as $manual) {
-                DB::table('manuals')->insertOrIgnore([
-                    'manual_code' => $manual['manual_code'],
-                    'name' => $manual['name'],
-                    'description' => $manual['description'],
-                    'system' => $manual['system'],
-                    'manual_type' => $manual['manual_type'],
+            foreach ($data as $passive) {
+                DB::table('passives')->insertOrIgnore([
+                    'id' => $passive['id'],
+                    'manual_code' => $passive['manual_code'],
+                    'name' => $passive['name'],
+                    'description' => $passive['description'],
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "Darkvision",    "description": "You can see in dim light within 60 feet as if it were bright light.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 2, "name": "Fey Ancestry",  "description": "You have advantage on saving throws against being charmed.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 3, "name": "Stonecunning",  "description": "Whenever you make a History check related to stonework, add double proficiency.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 4, "name": "Second Wind",   "description": "You can use a bonus action to regain 1d10 + fighter level hit points.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 5, "name": "Action Surge",  "description": "On your turn, you can take one additional action.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 6, "name": "Sneak Attack",  "description": "Once per turn, deal extra 1d6 damage to one creature you hit.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 7, "name": "Spellcasting",  "description": "You have the ability to cast spells using your spellcasting ability.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 8, "name": "Lucky",         "description": "When you roll a 1, you can reroll the die and must use the new roll.", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" }
+]

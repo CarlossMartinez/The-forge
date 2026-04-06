@@ -60,12 +60,6 @@ class User extends Authenticatable
         return $this->hasMany(Character::class);
     }
 
-    public function manuals()
-    {
-        return $this->belongsToMany(Manual::class, 'user_manuals')
-            ->withPivot('enabled, is_owner');
-    }
-    
     public function folders()
     {
         return $this->hasMany(Folder::class);

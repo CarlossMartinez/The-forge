@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "admin",   "remember_token": null, "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 2, "name": "user",    "remember_token": null, "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 3, "name": "premium", "remember_token": null, "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" }
+]

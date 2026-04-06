@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Fighter", "description": "Fighters share an unparalleled mastery with weapons and armor.", "hit_die": 10, "spellcaster": false, "spellcasting_ability": null, "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 2, "name": "Wizard",  "description": "Wizards are supreme magic-users, defined and united as a class by the spells they cast.", "hit_die": 6, "spellcaster": true, "spellcasting_ability": "Intelligence", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 3, "name": "Rogue",   "description": "Rogues rely on skill, stealth, and their foes vulnerabilities.", "hit_die": 8, "spellcaster": false, "spellcasting_ability": null, "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 4, "name": "Cleric",  "description": "Clerics are intermediaries between the mortal world and the distant planes of the gods.", "hit_die": 8, "spellcaster": true, "spellcasting_ability": "Wisdom", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" },
+  { "id": 5, "name": "Ranger",  "description": "Warriors of the wilderness, rangers specialize in hunting monsters.", "hit_die": 10, "spellcaster": true, "spellcasting_ability": "Wisdom", "manual_code": "PHB_5E", "created_at": "2024-01-01 00:00:00", "updated_at": "2024-01-01 00:00:00" }
+]

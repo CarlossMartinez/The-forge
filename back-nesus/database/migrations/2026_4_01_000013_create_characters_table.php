@@ -28,7 +28,12 @@ return new class extends Migration
             $table->foreignId('background_id')->nullable()->constrained('backgrounds')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('clase_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('subclass_id')->nullable()->constrained('subclasses')->onUpdate('restrict')->onDelete('restrict');
-            $table->foreignId('manual_code')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->string('manual_code');
+            $table->foreign('manual_code')
+                ->references('manual_code')
+                ->on('manuals')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }

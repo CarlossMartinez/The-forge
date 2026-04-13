@@ -8,26 +8,24 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 
-class FolderSeeder extends Seeder
+class Clase_ProeficiencieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $files = File::files(public_path('data/folders'));
+        $files = File::files(public_path('data/classes_proeficiencies'));
         
         if(!$files) return;
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
-                DB::table('folders')->insertOrIgnore([
+                DB::table('clase_proeficiencie')->insertOrIgnore([
                     'id' => $d['id'],
-                    'user_id' => $d['user_id'],
-                    'name' => $d['name'],
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'clase_id' => $d['clase_id'],
+                    'proeficiencie_id' => $d['proeficiencie_id'],              
                 ]);
             }
         }

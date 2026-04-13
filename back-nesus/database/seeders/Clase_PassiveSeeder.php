@@ -8,26 +8,25 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 
-class FolderSeeder extends Seeder
+class Clase_PassiveSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $files = File::files(public_path('data/folders'));
+        $files = File::files(public_path('data/classes_passives'));
         
         if(!$files) return;
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
-                DB::table('folders')->insertOrIgnore([
+                DB::table('clase_passive')->insertOrIgnore([
                     'id' => $d['id'],
-                    'user_id' => $d['user_id'],
-                    'name' => $d['name'],
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'level_required' => $d['level_required'],
+                    'clase_id' => $d['clase_id'],
+                    'passive_id' => $d['passive_id'],              
                 ]);
             }
         }

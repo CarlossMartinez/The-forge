@@ -45,6 +45,12 @@ class DatabaseSeeder extends Seeder
             BackgroundSeeder::class,
 
             FolderSeeder::class,
+
+            CharacterSeeder::class,
+
+            Clase_PassiveSeeder::class,
+
+            Clase_ProeficiencieSeeder::class,
         ]);
     }
 }

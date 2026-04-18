@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class Character extends Controller
 {
-    //
+    function create(){
+        
+    }
 }

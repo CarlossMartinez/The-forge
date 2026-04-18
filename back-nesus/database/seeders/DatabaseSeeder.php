@@ -51,6 +51,36 @@ class DatabaseSeeder extends Seeder
             Clase_PassiveSeeder::class,
 
             Clase_ProeficiencieSeeder::class,
+
+            Character_SpellSeeder::class,
+
+            Character_FeatSeeder::class,
+
+            Character_PassiveSeeder::class,
+
+            Character_ProeficiencieSeeder::class,
+
+            Character_StatSeeder::class,
+
+            Character_ItemSeeder::class,
+
+            Character_FolderSeeder::class,
+
+            Background_ProeficiencieSeeder::class,
+
+            Race_PassiveSeeder::class,
+
+            Spell_SlotSeeder::class,
+
+            Subclass_PassiveSeeder::class,
+
+            Subclass_SpellSeeder::class,
+
+            Subrace_PassiveSeeder::class,
+
+            Clase_SpellSeeder::class,
+
+            
         ]);
     }
 }

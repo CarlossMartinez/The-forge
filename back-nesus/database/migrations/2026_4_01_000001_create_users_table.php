@@ -20,7 +20,7 @@ return new class extends Migration
         
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->Integer('github_id')->unique();
+            $table->Integer('github_id')->unique()->nullable();
             $table->string('username', 30)->unique();
             $table->string('email', 100)->unique();
             $table->string('image', 255)->nullable();

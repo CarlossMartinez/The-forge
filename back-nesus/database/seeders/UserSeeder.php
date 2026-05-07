@@ -23,7 +23,6 @@ class UserSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $user) {
                 DB::table('users')->insertOrIgnore([
-                'id' => $user['id'],
                 'github_id' => $user['github_id'],
                 'username' => $user['username'],
                 'image' => $user['image'],

@@ -10,8 +10,6 @@ Route::get('/users/{id}', [userController::class, 'show']);
 
 Route::post('/users', [userController::class, 'store']);
 
-Route::patch('/users/{id}', function () {
-    return "Modificando usuario";
-});
+Route::patch('/users/{id}', [userController::class, 'update']);
 
 Route::delete('/users/{id}',[userController::class, 'destroy']);

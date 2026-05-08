@@ -22,9 +22,26 @@ class characterController extends Controller
 
     public function show($id)
     {
-        $character= Character::find($id);
         try {
-            $character= Character::find($id);
+            $character = Character::with([
+                'race',
+                'subrace',
+                'background',
+                'clase',
+                'subclass',
+                'manual',
+
+                'stats.stat',
+
+                'items',
+                'spells',
+
+                'feats',
+                'passives',
+                'proeficiencies',
+
+                'spellSlots'
+            ])->findOrFail($id);
             return response()->json($character, 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al obtener el personaje', 'error' => $e->getMessage()], 500);

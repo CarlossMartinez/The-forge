@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Spell_slot extends Model
+class spellSlots extends Model
 {
     /**
      * The attributes that are mass assignable.

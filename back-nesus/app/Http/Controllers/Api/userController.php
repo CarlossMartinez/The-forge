@@ -77,4 +77,14 @@ class userController extends Controller
             ]);
         }
     }
+
+    public function getCharactersByUserId($id)
+    {
+        $user = User::with('characters')->findOrFail($id);
+
+        return response()->json([
+            'user_id' => $user->id,
+            'characters' => $user->characters
+        ]);
+    }
 }

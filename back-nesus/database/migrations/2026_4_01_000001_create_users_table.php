@@ -21,7 +21,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->Integer('github_id')->unique()->nullable();
-            $table->string('username', 30)->unique();
+            $table->string('username', 30)->nullable();
             $table->string('email', 100)->unique();
             $table->string('image', 255)->nullable();
             $table->foreignId('role_id')->default(3)->onUpdate('restrict')->onDelete('restrict');

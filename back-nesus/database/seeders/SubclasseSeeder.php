@@ -23,7 +23,6 @@ class SubclasseSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $subclasse) {
                 DB::table('subclasses')->insertOrIgnore([
-                'id' => $subclasse['id'],
                 'clase_id' => $subclasse['clase_id'],
                 'name' => $subclasse['name'],
                 'description' => $subclasse['description'],

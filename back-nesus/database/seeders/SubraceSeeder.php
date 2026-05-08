@@ -23,7 +23,6 @@ class SubraceSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $subrace) {
                 DB::table('subraces')->insertOrIgnore([
-                    'id' => $subrace['id'],
                     'manual_code' => $subrace['manual_code'],
                     'name' => $subrace['name'],
                     'description' => $subrace['description'],

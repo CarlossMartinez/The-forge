@@ -23,7 +23,6 @@ class PassiveSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $passive) {
                 DB::table('passives')->insertOrIgnore([
-                    'id' => $passive['id'],
                     'manual_code' => $passive['manual_code'],
                     'name' => $passive['name'],
                     'description' => $passive['description'],

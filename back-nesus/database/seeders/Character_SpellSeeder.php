@@ -23,7 +23,6 @@ class Character_SpellSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('character_spell')->insertOrIgnore([
-                    'id' => $d['id'],
                     'is_prepared' => $d['is_prepared'],
                     'character_id' => $d['character_id'],
                     'spell_id' => $d['spell_id'],              

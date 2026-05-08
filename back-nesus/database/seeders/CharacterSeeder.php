@@ -22,7 +22,6 @@ class CharacterSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('characters')->insertOrIgnore([
-                    'id' => $d['id'],
                     'manual_code' => $d['manual_code'],
                     'name' => $d['name'],
                     'description' => $d['description'],

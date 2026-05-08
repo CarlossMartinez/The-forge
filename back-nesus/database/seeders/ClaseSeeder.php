@@ -23,7 +23,6 @@ class ClaseSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $clase) {
                 DB::table('clases')->insertOrIgnore([
-                'id' => $clase['id'],
                 'name' => $clase['name'],
                 'description' => $clase['description'],
                 'hit_die' => $clase['hit_die'],

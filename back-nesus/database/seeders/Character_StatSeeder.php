@@ -23,7 +23,6 @@ class Character_StatSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('character_stat')->insertOrIgnore([
-                    'id' => $d['id'],
                     'value' => $d['value'],
                     'character_id' => $d['character_id'],
                     'stat_id' => $d['stat_id'],              

@@ -23,7 +23,6 @@ class ItemSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $item) {
                 DB::table('items')->insertOrIgnore([
-                    'id' => $item['id'],
                     'manual_code' => $item['manual_code'],
                     'name' => $item['name'],
                     'description' => $item['description'],

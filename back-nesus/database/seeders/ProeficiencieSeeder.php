@@ -23,7 +23,6 @@ class ProeficiencieSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $proeficiencie) {
                 DB::table('proeficiencies')->insertOrIgnore([
-                    'id' => $proeficiencie['id'],
                     'manual_code' => $proeficiencie['manual_code'],
                     'name' => $proeficiencie['name'],
                     'description' => $proeficiencie['description'],

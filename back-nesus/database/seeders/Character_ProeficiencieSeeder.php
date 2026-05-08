@@ -23,7 +23,6 @@ class Character_ProeficiencieSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('character_proeficiencie')->insertOrIgnore([
-                    'id' => $d['id'],
                     'character_id' => $d['character_id'],
                     'proeficiencie_id' => $d['proeficiencie_id'],              
                 ]);

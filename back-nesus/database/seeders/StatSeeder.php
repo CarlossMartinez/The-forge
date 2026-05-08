@@ -23,7 +23,6 @@ class StatSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $stat) {
                 DB::table('stats')->insertOrIgnore([
-                    'id' => $stat['id'],
                     'manual_code' => $stat['manual_code'],
                     'name' => $stat['name'],
                     'description' => $stat['description'],

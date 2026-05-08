@@ -23,7 +23,6 @@ class SpellSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $spell) {
                 DB::table('spells')->insertOrIgnore([
-                    'id' => $spell['id'],
                     'manual_code' => $spell['manual_code'],
                     'name' => $spell['name'],
                     'description' => $spell['description'],

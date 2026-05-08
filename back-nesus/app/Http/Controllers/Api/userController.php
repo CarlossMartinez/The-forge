@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\StoreUserRequest;
+
 class userController extends Controller
 {
     public function index()
@@ -34,24 +36,23 @@ class userController extends Controller
         return response()->json($user, 200);
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $user = User::create([
-            'username' => $request->username,
-            'email' => $request->email,
-            'role_id' => 3,
-        ]);
+        $data = $request->validated();
 
-        if (!$user) {
-            return response()->json(['message' => 'Error al crear el usuario'], 500); // Error 
-        }
+        try {
+            $user = User::create($data);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Error al crear el usuario', 'error' => $e->getMessage()], 500);
+        }   
         return response()->json(['message' => 'Usuario creado exitosamente', 'user' => $user], 201); // El codigo 201 es para decir que se ha creado bien
     }
 
     public function update(UpdateUserRequest $request, User $user)
     {
         try {
-            $user->update($request->validated());
+            $data = $request->validated();
+            $user->update($data);
             return response()->json([
                 'msg'  => 'User actualitzat correctament',
                 'user' => new UserResource($user)
@@ -64,14 +65,16 @@ class userController extends Controller
         }
     }
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        try {
+            $user->delete();
+            return (new UserResource($user))->additional(['msg' => 'Usuari eliminat correctament']);
+        } catch (Exception $e) {
+            return response()->json([
+                'msg' => 'Aquest usuari no pot ser eliminat perquè està referenciat en altres taules',
+                'error' => $e->getMessage()
+            ]);
         }
-
-        $user->delete();
     }
 }

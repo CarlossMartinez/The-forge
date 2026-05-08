@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+   
     "name": "Fighter",
     "description": "Fighters share an unparalleled mastery with weapons and armor, and a thorough knowledge of the skills of combat.",
     "hit_die": 10,
@@ -11,7 +11,6 @@
     "updated_at": "2024-01-01T00:00:00"
   },
   {
-    "id": 2,
     "name": "Wizard",
     "description": "Wizards are supreme magic-users, defined and united as a class by the spells they cast.",
     "hit_die": 6,
@@ -22,7 +21,6 @@
     "updated_at": "2024-01-01T00:00:00"
   },
   {
-    "id": 3,
     "name": "Rogue",
     "description": "Rogues rely on skill, stealth, and their foes' vulnerabilities to get the upper hand in any situation.",
     "hit_die": 8,
@@ -33,7 +31,6 @@
     "updated_at": "2024-01-01T00:00:00"
   },
   {
-    "id": 4,
     "name": "Cleric",
     "description": "Clerics are intermediaries between the mortal world and the distant planes of the gods.",
     "hit_die": 8,
@@ -44,7 +41,6 @@
     "updated_at": "2024-01-01T00:00:00"
   },
   {
-    "id": 5,
     "name": "Ranger",
     "description": "Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization.",
     "hit_die": 10,
@@ -55,7 +51,6 @@
     "updated_at": "2024-01-01T00:00:00"
   },
   {
-    "id": 6,
     "name": "Brujillo",
     "description": "Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization.",
     "hit_die": 10,

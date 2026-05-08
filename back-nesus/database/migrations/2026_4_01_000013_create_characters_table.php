@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('description', 1000);
+            $table->string('description', 1000)->nullable();
             $table->integer('level')->default(1)->check('level >= 0 AND level <= 20');
             $table->integer('experience')->default(0);
             $table->integer('hp_max');
             $table->integer('hp_current');
             $table->integer('hp_temp')->default(0);
-            $table->string('alignment', 20);
+            $table->string('alignment', 20)->default("Neutral");
             $table->string('image', 255)->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('race_id')->nullable()->constrained('races')->onUpdate('restrict')->onDelete('restrict');

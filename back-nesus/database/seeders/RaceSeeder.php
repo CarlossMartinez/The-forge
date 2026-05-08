@@ -23,7 +23,6 @@ class RaceSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $race) {
                 DB::table('races')->insertOrIgnore([
-                    'id' => $race['id'],
                     'manual_code' => $race['manual_code'],
                     'name' => $race['name'],
                     'description' => $race['description'],

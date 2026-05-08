@@ -13,8 +13,7 @@ class UpdateUserRequest extends FormRequest
 
     public function rules(): array
     {
-        $user = $this->route('user');
-        $id = $user->id; 
+        $id = $this->route('userUpdateDestroy')->id ?? null; 
         return [
             'github_id' => 'nullable|integer|unique:users,github_id,' . $id,
             'username'  => 'sometimes|string|max:30|unique:users,username,' . $id,

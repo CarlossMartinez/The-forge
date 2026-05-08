@@ -23,7 +23,6 @@ class BackgroundSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $background) {
                 DB::table('backgrounds')->insertOrIgnore([
-                    'id' => $background['id'],
                     'manual_code' => $background['manual_code'],
                     'name' => $background['name'],
                     'description' => $background['description'],

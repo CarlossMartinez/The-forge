@@ -23,7 +23,6 @@ class Subclass_SpellSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('subclass_spell')->insertOrIgnore([
-                    'id' => $d['id'],
                     'subclass_id' => $d['subclass_id'],
                     'spell_id' => $d['spell_id'],              
                 ]);

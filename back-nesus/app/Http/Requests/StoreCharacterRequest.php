@@ -3,7 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 class StoreCharacterRequest extends FormRequest
 {
     public function authorize(): bool
@@ -15,7 +16,7 @@ class StoreCharacterRequest extends FormRequest
     {
         return [
             'name'         => 'required|string',
-            'description'  => 'required|string',
+            'description'  => 'sometimes|string',
             'level'        => 'sometimes|integer|min:1|max:20',
             'experience'   => 'sometimes|integer|min:0',
             'hp_max'       => 'required|integer|min:1',
@@ -31,5 +32,14 @@ class StoreCharacterRequest extends FormRequest
             'subclass_id'  => 'nullable|integer|exists:subclasses,id',
             'manual_code'  => 'required|string|exists:manuals,manual_code',
         ];
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(
+            response()->json([
+                'message' => 'Error de validación',
+                'errors'  => $validator->errors()
+            ], 422)
+        );
     }
 }

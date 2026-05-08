@@ -23,7 +23,6 @@ class FolderSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('folders')->insertOrIgnore([
-                    'id' => $d['id'],
                     'user_id' => $d['user_id'],
                     'name' => $d['name'],
                     'created_at' => now(),

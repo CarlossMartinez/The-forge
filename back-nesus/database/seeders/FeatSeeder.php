@@ -23,7 +23,6 @@ class FeatSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $feat) {
                 DB::table('feats')->insertOrIgnore([
-                    'id' => $feat['id'],
                     'manual_code' => $feat['manual_code'],
                     'name' => $feat['name'],
                     'description' => $feat['description'],

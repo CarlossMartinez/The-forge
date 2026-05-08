@@ -23,7 +23,6 @@ class Clase_PassiveSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('clase_passive')->insertOrIgnore([
-                    'id' => $d['id'],
                     'level_required' => $d['level_required'],
                     'clase_id' => $d['clase_id'],
                     'passive_id' => $d['passive_id'],              

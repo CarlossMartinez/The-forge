@@ -23,7 +23,6 @@ class Character_FolderSeeder extends Seeder
             $data = json_decode(File::get($file), true);
             foreach ($data as $d) {
                 DB::table('character_folder')->insertOrIgnore([
-                    'id' => $d['id'],
                     'folder_id' => $d['folder_id'],
                     'character_id' => $d['character_id'],              
                 ]);

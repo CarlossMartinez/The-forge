@@ -43,8 +43,7 @@ export default function Dashboard() {
         <div style={styles.page}>
             {/* Fondo con textura */}
             <div style={styles.bg} />
- 
-            {/* Navbar */}
+
             <nav style={styles.navbar}>
                 <span style={styles.brand}>⚔ DnD Creator</span>
                 <div style={styles.navRight}>

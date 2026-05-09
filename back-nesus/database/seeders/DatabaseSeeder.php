@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
 
             Clase_SpellSeeder::class,
 
-            
+            Character_ClaseSeeder::class,
         ]);
     }
 }

@@ -50,15 +50,6 @@ class Character extends Model
         return $this->belongsTo(Background::class);
     }
 
-    public function clase()
-    {
-        return $this->belongsTo(Clase::class);
-    }
-
-    public function subclass()
-    {
-        return $this->belongsTo(Subclass::class);
-    }
 
     public function manual()
     {
@@ -102,7 +93,12 @@ class Character extends Model
             'proeficiencie_id'
         );
     }
-
+    public function clases()
+    {
+        return $this->belongsToMany(Clase::class, 'character_clase')
+            ->withPivot('level', 'subclass_id')
+            ->withTimestamps();
+    }
     public function folders()
     {
         return $this->belongsToMany(Folder::class, 'character_folder');

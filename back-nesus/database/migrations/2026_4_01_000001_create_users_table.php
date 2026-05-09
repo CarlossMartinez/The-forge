@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('username', 30)->nullable();
             $table->string('email', 100)->unique();
             $table->string('image', 255)->nullable();
-            $table->foreignId('role_id')->default(3)->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('role_id')->default(3)->onUpdate('restrict')->onDelete('restrict')->contrained();
             $table->rememberToken();
             $table->timestamps();
         });

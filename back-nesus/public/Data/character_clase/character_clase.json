@@ -1,0 +1,52 @@
+[
+  {
+    "character_id": 1,
+    "clase_id": 1,
+    "subclass_id": 1,
+    "level": 5,
+    "created_at": "2024-02-10 12:00:00",
+    "updated_at": "2024-03-01 18:30:00"
+  },
+  {
+    "character_id": 1,
+    "clase_id": 2,
+    "subclass_id": 3,
+    "level": 2,
+    "created_at": "2024-03-10 10:00:00",
+    "updated_at": "2024-03-15 14:00:00"
+  },
+
+  {
+    "character_id": 2,
+    "clase_id": 2,
+    "subclass_id": 3,
+    "level": 7,
+    "created_at": "2024-02-20 09:00:00",
+    "updated_at": "2024-04-01 10:00:00"
+  },
+  {
+    "character_id": 2,
+    "clase_id": 5,
+    "subclass_id": 2,
+    "level": 1,
+    "created_at": "2024-04-05 12:00:00",
+    "updated_at": "2024-04-05 12:00:00"
+  },
+
+  {
+    "character_id": 3,
+    "clase_id": 4,
+    "subclass_id": 2,
+    "level": 4,
+    "created_at": "2024-03-05 16:00:00",
+    "updated_at": "2024-03-05 16:00:00"
+  },
+  {
+    "character_id": 3,
+    "clase_id": 1,
+    "subclass_id": 2,
+    "level": 1,
+    "created_at": "2024-03-20 18:00:00",
+    "updated_at": "2024-03-20 18:00:00"
+  }
+]

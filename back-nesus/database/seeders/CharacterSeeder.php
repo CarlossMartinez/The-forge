@@ -34,8 +34,6 @@ class CharacterSeeder extends Seeder
                     'image' => $d['image'],
                     'race_id' => $d['race_id'],
                     'subrace_id' => $d['subrace_id'],
-                    'clase_id' => $d['clase_id'],
-                    'subclass_id' => $d['subclass_id'],
                     'background_id' => $d['background_id'],
                     'user_id' => $d['user_id'],
                     'created_at' => now(),

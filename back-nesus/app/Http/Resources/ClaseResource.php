@@ -22,7 +22,7 @@ class ClaseResource extends JsonResource
             'spellcaster'          => $this->spellcaster,
             'spellcasting_ability' => $this->spellcasting_ability,
             'manual_code'          => $this->manual_code,
-            'subclasses'           => SubclassResource::collection($this->whenLoaded('subclasses')),
+            'subclasses'           => SubclassResource::collection($this->whenLoaded('subclass')),
             'passives'             => PassiveResource::collection($this->whenLoaded('passives')),
             'spells'               => SpellResource::collection($this->whenLoaded('spells')),
             'proeficiencies'       => ProeficiencyResource::collection($this->whenLoaded('proeficiencies')),

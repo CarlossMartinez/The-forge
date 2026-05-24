@@ -22,5 +22,13 @@
     "user_id": 3, "race_id": 3, "subrace_id": 4, "background_id": 1,
     "manual_code": "PHB_5E",
     "created_at": "2024-03-05 16:00:00", "updated_at": "2024-03-05 16:00:00"
+  },
+  {
+    "name": "Durgin Ironfist", "description": "A mountain dwarf cleric of the forge god.",
+    "level": 4, "experience": 2700, "hp_max": 36, "hp_current": 36, "hp_temp": 0,
+    "alignment": "Lawful Neutral", "image": null,
+    "user_id": 4, "race_id": 3, "subrace_id": 4, "background_id": 1,
+    "manual_code": "PHB_5E",
+    "created_at": "2024-03-05 16:00:00", "updated_at": "2024-03-05 16:00:00"
   }
 ]

@@ -1,3 +1,7 @@
+@import "tailwindcss";
+/* @import "daisyui"; */
+@plugin "daisyui";
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -182,3 +186,4 @@
     border-right-color: var(--border);
   }
 }
+

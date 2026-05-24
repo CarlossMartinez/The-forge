@@ -50,6 +50,10 @@ class Character extends Model
         return $this->belongsTo(Background::class);
     }
 
+    public function subclass()
+    {
+        return $this->belongsTo(Subclass::class, 'subclass_id');
+    }
 
     public function manual()
     {

@@ -13,8 +13,27 @@ class characterController extends Controller
     public function index()
     {
         try {
-            $characters = Character::all();
-            return response()->json($characters, 200);
+            $characters = Character::with([
+                'race',
+                'subrace',
+                'background',
+                'clases.subclass',
+                'subclass',
+                'manual',
+
+                'stats',
+
+                'items',
+                'spells',
+
+                'feats',
+                'passives',
+                'proeficiencies',
+
+                'spellSlots'
+            ])->get();
+
+            return response()->json(['characters' => CharacterResource::collection($characters)->toArray(request())], 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al obtener los personajes', 'error' => $e->getMessage()], 500);
         }
@@ -27,11 +46,11 @@ class characterController extends Controller
                 'race',
                 'subrace',
                 'background',
-                'clase',
+                'clases.subclasses',
                 'subclass',
                 'manual',
 
-                'stats.stat',
+                'stats',
 
                 'items',
                 'spells',
@@ -42,7 +61,7 @@ class characterController extends Controller
 
                 'spellSlots'
             ])->findOrFail($id);
-            return response()->json($character, 200);
+            return new CharacterResource($character);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al obtener el personaje', 'error' => $e->getMessage()], 500);
         }
@@ -52,9 +71,29 @@ class characterController extends Controller
     {
         // Validar los datos de entrada
         $data = $request->validated();
+
+        // Extraer clase/subclass para insertar en la tabla pivot character_clase
+        $claseId = $data['clase_id'] ?? null;
+        $pivotSubclassId = $data['subclass_id'] ?? null;
+
+        // Evitar que Eloquent intente insertar columnas que no existen en characters
+        unset($data['clase_id'], $data['subclass_id']);
+
         try {
-            // Crear un nuevo personaje con los datos validados
+            // Crear el personaje
             $character = Character::create($data);
+
+            // Si se proporcionó una clase, adjuntarla en la tabla pivot con sus datos
+            if ($claseId) {
+                $attachData = [
+                    'level' => $data['level'] ?? 1,
+                ];
+                if (! is_null($pivotSubclassId)) {
+                    $attachData['subclass_id'] = $pivotSubclassId;
+                }
+                $character->clases()->attach($claseId, $attachData);
+            }
+
             return response()->json($character, 201);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al crear el personaje', 'error' => $e->getMessage()], 500);

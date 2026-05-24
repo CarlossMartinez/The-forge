@@ -16,5 +16,11 @@
   {  "value": 16, "character_id": 3, "stat_id": 3 },
   {  "value": 12, "character_id": 3, "stat_id": 4 },
   {  "value": 15, "character_id": 3, "stat_id": 5 },
-  {  "value": 11, "character_id": 3, "stat_id": 6 }
+  {  "value": 11, "character_id": 3, "stat_id": 6 },
+  {  "value": 16, "character_id": 4, "stat_id": 1 },
+  {  "value": 12, "character_id": 4, "stat_id": 2 },
+  { "value": 14, "character_id": 4, "stat_id": 3 },
+  {   "value": 10, "character_id": 4, "stat_id": 4 },
+  {   "value": 11, "character_id": 4, "stat_id": 5 },
+  {   "value": 13, "character_id": 4, "stat_id": 6 }
 ]

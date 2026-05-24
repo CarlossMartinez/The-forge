@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
+use App\Models\Character;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\CharacterResource;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\StoreUserRequest;
 
@@ -80,11 +82,30 @@ class userController extends Controller
 
     public function getCharactersByUserId($id)
     {
-        $user = User::with('characters')->findOrFail($id);
+        try {
+            $characters = Character::with([
+                'race',
+                'subrace',
+                'background',
+                'clases.subclass',
+                'subclass',
+                'manual',
 
-        return response()->json([
-            'user_id' => $user->id,
-            'characters' => $user->characters
-        ]);
+                'stats',
+
+                'items',
+                'spells',
+
+                'feats',
+                'passives',
+                'proeficiencies',
+
+                'spellSlots'
+            ])->where('user_id', $id)->get();
+
+            return response()->json(['characters' => CharacterResource::collection($characters)->toArray(request())], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Error al obtener personajes del usuario', 'error' => $e->getMessage()], 500);
+        }
     }
 }

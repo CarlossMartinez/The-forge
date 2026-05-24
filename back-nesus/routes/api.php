@@ -26,6 +26,8 @@ Route::bind('characterUpdateDestroy', function ($value) {
         ? Character::findOrFail($value)
         : Character::where('name', $value)->firstOrFail();
 });
+// Testing de rutas
+
 
 // Rutas para USERS
 Route::middleware('auth:sanctum')->group(function () {
@@ -46,14 +48,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/users/{userUpdateDestroy}', [userController::class, 'update']);
     Route::delete('/users/{userUpdateDestroy}', [userController::class, 'destroy']);
     Route::get('/users/characters/{id}', [userController::class, 'getCharactersByUserId']);
-
+    Route::get('/characters', [characterController::class, 'index']);
+    Route::get('/characters/{id}', [characterController::class, 'show']);
     // STATS
     Route::get('/stats', [statController::class, 'index']);
     Route::get('/stats/{id}', [statController::class, 'show']);
 
-    // CHARACTERS
-    Route::get('/characters', [characterController::class, 'index']);
-    Route::get('/characters/{id}', [characterController::class, 'show']);
+    // CHARACTERS (operaciones de escritura siguen requiriendo auth)
     Route::post('/characters', [characterController::class, 'store']);
     Route::put('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);
     Route::patch('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);

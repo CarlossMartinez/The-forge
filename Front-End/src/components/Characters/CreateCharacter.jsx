@@ -15,6 +15,30 @@ export default function CreateCharacter(){
     const level = 1;
     const xp = 0;
 
+    async function guardaPersonaje(){
+         try {
+            const res = await api.post('/characters',{
+                name:           name,
+                description:    description,
+                alignment:      alignment,
+                image:          image,
+                race_id:        race,
+                background_id:  background,
+                class_id:       clas,
+                subclass_id:    subclass,
+                manual_id:      manual,
+                level:          level,
+                xp:             xp,
+            });
+            console.log("Personaje creado:", res.data);
+            navigate('/dashboard');
+
+        } catch (e) {
+            console.error('Error al guardar el personaje', e.response?.data);
+        } finally {
+            console.log("añadir redirect");
+        }
+    }
     return(
         <>
             <Navbar />

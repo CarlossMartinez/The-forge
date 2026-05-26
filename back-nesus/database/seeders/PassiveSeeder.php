@@ -1,0 +1,35 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
+
+class PassiveSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $files = File::files(public_path('data/passives'));
+        
+        if(!$files) return;
+
+        foreach ($files as $file) {
+            $data = json_decode(File::get($file), true);
+            foreach ($data as $passive) {
+                DB::table('passives')->insertOrIgnore([
+                    'manual_code' => $passive['manual_code'],
+                    'name' => $passive['name'],
+                    'description' => $passive['description'],
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+        }
+    }
+}

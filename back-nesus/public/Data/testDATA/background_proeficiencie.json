@@ -1,0 +1,9 @@
+[
+  { "id": 1, "background_id": 1, "proeficiencie_id": 7 },
+  { "id": 2, "background_id": 1, "proeficiencie_id": 8 },
+  { "id": 3, "background_id": 2, "proeficiencie_id": 6 },
+  { "id": 4, "background_id": 3, "proeficiencie_id": 4 },
+  { "id": 5, "background_id": 3, "proeficiencie_id": 8 },
+  { "id": 6, "background_id": 4, "proeficiencie_id": 7 },
+  { "id": 7, "background_id": 4, "proeficiencie_id": 8 }
+]

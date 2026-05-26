@@ -1,0 +1,10 @@
+[
+  { "id": 1, "character_id": 1, "passive_id": 4 },
+  { "id": 2, "character_id": 1, "passive_id": 5 },
+  { "id": 3, "character_id": 2, "passive_id": 1 },
+  { "id": 4, "character_id": 2, "passive_id": 2 },
+  { "id": 5, "character_id": 2, "passive_id": 7 },
+  { "id": 6, "character_id": 3, "passive_id": 1 },
+  { "id": 7, "character_id": 3, "passive_id": 3 },
+  { "id": 8, "character_id": 3, "passive_id": 7 }
+]

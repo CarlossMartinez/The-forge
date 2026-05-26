@@ -19,9 +19,9 @@ class StoreCharacterRequest extends FormRequest
             'description'  => 'sometimes|string',
             'level'        => 'sometimes|integer|min:1|max:20',
             'experience'   => 'sometimes|integer|min:0',
-            'hp_max'       => 'required|integer|min:1',
-            'hp_current'   => 'required|integer|min:0',
-            'hp_temp'      => 'sometimes|integer|min:0',
+            'hp_max'       => 'integer|min:1',
+            'hp_current'   => 'integer|min:0',
+            'hp_temp'      => 'integer|min:0',
             'alignment'    => 'required|string',
             'image'        => 'nullable|string|max:255',
             'user_id'      => 'required|integer|exists:users,id',
@@ -30,8 +30,7 @@ class StoreCharacterRequest extends FormRequest
             'background_id'=> 'nullable|integer|exists:backgrounds,id',
             'clase_id'     => 'required|integer|exists:clases,id',
             'subclass_id'  => 'nullable|integer|exists:subclasses,id',
-            'manual_code'  => 'required|string|exists:manuals,manual_code',
-        ];
+            'manual_code' => 'nullable|string|exists:manuals,manual_code',        ];
     }
     protected function failedValidation(Validator $validator)
     {

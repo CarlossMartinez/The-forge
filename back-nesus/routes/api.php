@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\characterController;
 use App\Models\Character;
 use App\Http\Controllers\Api\itemController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\FormOptionsController;
 
 // para autenticar
 Route::get('/auth/github', [AuthController::class, 'redirectToGithub']);
@@ -63,4 +64,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // ITEMS
     Route::get('/items', [itemController::class, 'index']);
     Route::get('/items/{id}', [itemController::class, 'show']);
+
+    Route::get('/races',       [FormOptionsController::class, 'races']);
+    Route::get('/subraces',    [FormOptionsController::class, 'subraces']);
+    Route::get('/backgrounds', [FormOptionsController::class, 'backgrounds']);
+    Route::get('/classes',     [FormOptionsController::class, 'classes']);
+    Route::get('/subclasses',  [FormOptionsController::class, 'subclasses']);
+    Route::get('/manuals',     [FormOptionsController::class, 'manuals']);
 });

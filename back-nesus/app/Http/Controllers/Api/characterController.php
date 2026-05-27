@@ -76,7 +76,7 @@ class characterController extends Controller
         $claseId = $data['clase_id'] ?? null;
         $pivotSubclassId = $data['subclass_id'] ?? null;
 
-        // Evitar que Eloquent intente insertar columnas que no existen en characters
+        // el unset es para evitar que inserte datos que no son de characters sino de sus pivotes
         unset($data['clase_id'], $data['subclass_id']);
 
         try {

@@ -42,7 +42,7 @@ export function AuthProvider({ children }) {
             await api.post('/logout');
         } finally {
             localStorage.removeItem('token');
-            // Con esto limpiamos todos los 
+            // Con esto limpiamos todos los headers
             if (api.defaults && api.defaults.headers && api.defaults.headers.Authorization) {
                 delete api.defaults.headers.Authorization;
             }

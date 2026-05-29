@@ -10,11 +10,12 @@ class AuthController extends Controller
     public function redirectToGithub()
     {
         return response()->json([
-            'url' => \Laravel\Socialite\Facades\Socialite::driver('github')
-                        ->stateless()
-                        ->redirect()
-                        ->getTargetUrl()
-        ]);
+        'url' => \Laravel\Socialite\Facades\Socialite::driver('github')
+                    ->stateless()
+                    ->with(['allow_signup' => 'true'])
+                    ->redirect()
+                    ->getTargetUrl() . '&login=true'
+    ]);
     }
 
     public function handleGithubCallback()

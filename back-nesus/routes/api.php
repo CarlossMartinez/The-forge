@@ -54,7 +54,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // STATS
     Route::get('/stats', [statController::class, 'index']);
     Route::get('/stats/{id}', [statController::class, 'show']);
-
+    Route::get('/stats/character/{id}', [statController::class, 'getStatsByCharacterId']);
+    Route::get('/sats/DnD5e', [statController::class, 'getDnD5eStats']);
+    route::post('/stats/character/{id}', [statController::class, 'store']);
+    
     // CHARACTERS (operaciones de escritura siguen requiriendo auth)
     Route::post('/characters', [characterController::class, 'store']);
     Route::put('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);

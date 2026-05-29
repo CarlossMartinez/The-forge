@@ -36,6 +36,9 @@ export default function CreateCharacter() {
     const [hpMax,     setHpMax]     = useState(1);
     const [hpCurrent, setHpCurrent] = useState(1);
 
+    const [statsOptions, setStatsOptions] = useState([]);
+    const [statValues, setStatValues] = useState({});
+
     const [loadingOptions, setLoadingOptions] = useState(true);
 
     const level = 1;
@@ -44,19 +47,22 @@ export default function CreateCharacter() {
     useEffect(() => {
         async function loadOptions() {
             try {
-                const [racesRes, backgroundsRes, classesRes, manualsRes] = await Promise.all([
+                const [racesRes, backgroundsRes, classesRes, manualsRes, statsRes] = await Promise.all([
                     api.get('/races'),
                     api.get('/backgrounds'),
                     api.get('/classes'),
                     api.get('/manuals'),
-                    
+                    api.get('/stats')
                 ]);
                 setRaces(racesRes.data);
                 setBackgrounds(backgroundsRes.data);
                 setClasses(classesRes.data);
                 setManuals(manualsRes.data);
+                setStatsOptions(statsRes.data);
+                const initialStats = {};
                 console.log('manuals:', manualsRes.data);
-
+                statsRes.data.forEach(s => { initialStats[s.id] = 10; });
+                setStatValues(initialStats);
             } catch (e) {
                 console.error('Error cargando opciones:', e);
             } finally {
@@ -102,6 +108,10 @@ export default function CreateCharacter() {
                 hp_max:     parseInt(hpMax),
                 hp_current: parseInt(hpCurrent),
                 hp_temp:    0,
+                stats: Object.entries(statValues).map(([id, value]) => ({
+                    id:    parseInt(id),
+                    value: parseInt(value)
+                })),
             });
             console.log("Personaje creado:", res.data);
             navigate('/dashboard');
@@ -111,7 +121,10 @@ export default function CreateCharacter() {
     }
 
     if (loadingOptions) return <p>Cargando opciones...</p>;
-
+    function calcMod(value) {
+        const mod = Math.floor((value - 10) / 2);
+        return mod >= 0 ? `+${mod}` : `${mod}`;
+    }
     return (
         <>
             <Navbar />
@@ -210,6 +223,30 @@ export default function CreateCharacter() {
                     <div>
                         <label>HP Actual</label>
                         <input type="number" value={hpCurrent} min={0} onChange={e => setHpCurrent(e.target.value)} required />
+                    </div>
+                    <div className="dnd-section">
+                        <p className="dnd-section-title">Estadísticas</p>
+                            <div className="dnd-grid-3">
+                            {statsOptions.map(stat => (
+                                <div key={stat.id} className="dnd-field" style={{ alignItems: 'center' }}>
+                                    <label className="dnd-label">{stat.name}</label>
+                                    <input
+                                        type="number"
+                                        min={1}
+                                        max={99}
+                                        value={statValues[stat.id] ?? 10}
+                                        onChange={e => setStatValues(prev => ({
+                                            ...prev,
+                                            [stat.id]: parseInt(e.target.value) || 1
+                                        }))}
+                                        style={{ textAlign: 'center' }}
+                                    />
+                                    <span>
+                                        {calcMod(statValues[stat.id] ?? 10)}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <button type="submit">Crear personaje</button>
                 </form>

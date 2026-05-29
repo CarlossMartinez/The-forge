@@ -35,6 +35,9 @@ export function AuthProvider({ children }) {
     const loginWithGithub = async () => {
         const res = await api.get('/auth/github');
         window.location.href = res.data.url;
+        console.log('token después:', localStorage.getItem('token'));
+        setUser(null);
+
     };
 
     const logout = async () => {

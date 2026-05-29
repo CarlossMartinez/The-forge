@@ -75,9 +75,10 @@ class characterController extends Controller
         // Extraer clase/subclass para insertar en la tabla pivot character_clase
         $claseId = $data['clase_id'] ?? null;
         $pivotSubclassId = $data['subclass_id'] ?? null;
+        $stats = $data['stats'] ?? null;
 
         // el unset es para evitar que inserte datos que no son de characters sino de sus pivotes
-        unset($data['clase_id'], $data['subclass_id']);
+        unset($data['clase_id'], $data['subclass_id'], $data['stats']);
 
         try {
             // Crear el personaje
@@ -92,6 +93,15 @@ class characterController extends Controller
                     $attachData['subclass_id'] = $pivotSubclassId;
                 }
                 $character->clases()->attach($claseId, $attachData);
+            }
+
+            if (!empty($stats)) {
+                $syncData = [];
+                foreach ($stats as $stat) {
+                    $syncData[$stat['id']] = ['value' => $stat['value']];
+                }
+                
+                $character->stats()->sync($syncData);
             }
 
             return response()->json($character, 201);

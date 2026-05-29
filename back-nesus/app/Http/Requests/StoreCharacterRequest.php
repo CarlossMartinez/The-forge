@@ -30,7 +30,10 @@ class StoreCharacterRequest extends FormRequest
             'background_id'=> 'nullable|integer|exists:backgrounds,id',
             'clase_id'     => 'required|integer|exists:clases,id',
             'subclass_id'  => 'nullable|integer|exists:subclasses,id',
-            'manual_code' => 'nullable|string|exists:manuals,manual_code',        ];
+            'manual_code' => 'nullable|string|exists:manuals,manual_code',
+            'stats'          => 'sometimes|array',
+            'stats.*.id'     => 'required_with:stats|integer|exists:stats,id',
+            'stats.*.value'  => 'required_with:stats|integer|min:1',        ];
     }
     protected function failedValidation(Validator $validator)
     {

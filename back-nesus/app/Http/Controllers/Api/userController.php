@@ -101,7 +101,7 @@ class userController extends Controller
                 'proeficiencies',
 
                 'spellSlots'
-            ])->where('user_id', $id)->get();
+            ])->where('user_id', $id)->where('enabled', true)->get();
 
             return response()->json(['characters' => CharacterResource::collection($characters)->toArray(request())], 200);
         } catch (Exception $e) {

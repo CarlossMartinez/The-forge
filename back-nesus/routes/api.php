@@ -62,7 +62,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/characters', [characterController::class, 'store']);
     Route::put('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);
     Route::patch('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);
-    Route::delete('/characters/{characterUpdateDestroy}', [characterController::class, 'disable']);
+    Route::patch('/characters/{characterUpdateDestroy}', [characterController::class, 'disable']);
 
     // ITEMS
     Route::get('/items', [itemController::class, 'index']);

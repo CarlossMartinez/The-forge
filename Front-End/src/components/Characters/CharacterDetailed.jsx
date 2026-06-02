@@ -8,7 +8,7 @@ export default function CharacterDetailed(){
 
     async function deleteCharacter(){
         console.log(character)
-      await api.delete(`/characters/${character}`);
+      await api.patch(`/characters/${character.id}`);
         navigate('/dashboard')
     }
     return(

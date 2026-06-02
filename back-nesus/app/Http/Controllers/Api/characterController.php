@@ -31,7 +31,7 @@ class characterController extends Controller
                 'proeficiencies',
 
                 'spellSlots'
-            ])->where('enabled' == true)->get();
+            ])->where('enabled', true)->get();
 
             return response()->json(['characters' => CharacterResource::collection($characters)->toArray(request())], 200);
         } catch (Exception $e) {
@@ -105,6 +105,7 @@ class characterController extends Controller
                 $character->stats()->sync($data);
             }
 
+            $this->asignaFeatures($character);
             return response()->json($character, 201);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al crear el personaje', 'error' => $e->getMessage()], 500);
@@ -148,6 +149,38 @@ class characterController extends Controller
             'file'    => $e->getFile(),
         ], 500);
         }
+    }
+    private function asignaFeatures(Character $character): void
+    {
+        $level    = $character->level;
+        $passives = collect();
+
+        if ($character->race)
+            $passives = $passives->merge($character->race->passives);
+
+        if ($character->subrace)
+            $passives = $passives->merge(
+                $character->subrace->passives
+                    ->filter(fn($p) => ($p->pivot->level_required ?? 1) <= $level)
+            );
+
+        foreach ($character->clases as $clase) {
+            $charLevel = $clase->pivot->level ?? $level;
+            $passives  = $passives->merge(
+                $clase->passives
+                    ->filter(fn($p) => ($p->pivot->level_required ?? 1) <= $charLevel)
+            );
+        }
+
+        if ($character->subclass)
+            $passives = $passives->merge(
+                $character->subclass->passives
+                    ->filter(fn($p) => ($p->pivot->level_required ?? 1) <= $level)
+            );
+
+        $character->passives()->sync(
+            $passives->pluck('id')->unique()->values()->toArray()
+        );
     }
 }
 

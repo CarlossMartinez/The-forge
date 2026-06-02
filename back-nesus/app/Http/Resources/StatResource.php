@@ -18,6 +18,7 @@ class StatResource extends JsonResource
             'id'          => $this->id,
             'name'        => $this->name,
             'description' => $this->description,
+            'value' => $this->pivot->value ?? null,
             'manual_code' => $this->manual_code,
         ];
     }

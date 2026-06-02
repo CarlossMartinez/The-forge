@@ -62,12 +62,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/characters', [characterController::class, 'store']);
     Route::put('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);
     Route::patch('/characters/{characterUpdateDestroy}', [characterController::class, 'update']);
-    Route::delete('/characters/{characterUpdateDestroy}', [characterController::class, 'destroy']);
+    Route::delete('/characters/{characterUpdateDestroy}', [characterController::class, 'disable']);
 
     // ITEMS
     Route::get('/items', [itemController::class, 'index']);
     Route::get('/items/{id}', [itemController::class, 'show']);
 
+    Route::get('/form-options', [FormOptionsController::class, 'index']);
     Route::get('/races',       [FormOptionsController::class, 'races']);
     Route::get('/subraces',    [FormOptionsController::class, 'subraces']);
     Route::get('/backgrounds', [FormOptionsController::class, 'backgrounds']);

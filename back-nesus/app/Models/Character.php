@@ -26,7 +26,7 @@ class Character extends Model
     protected $fillable = [
         'name', 'description', 'level', 'experience',
         'hp_max', 'hp_current', 'hp_temp', 'alignment',
-        'image', 'user_id', 'race_id', 'subrace_id',
+        'image', 'enabled', 'user_id', 'race_id', 'subrace_id',
         'background_id', 'clase_id', 'subclass_id', 'manual_code',
     ];
 

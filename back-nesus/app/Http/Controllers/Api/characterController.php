@@ -31,7 +31,7 @@ class characterController extends Controller
                 'proeficiencies',
 
                 'spellSlots'
-            ])->get();
+            ])->where('enabled' == true)->get();
 
             return response()->json(['characters' => CharacterResource::collection($characters)->toArray(request())], 200);
         } catch (Exception $e) {
@@ -58,7 +58,7 @@ class characterController extends Controller
                 'feats',
                 'passives',
                 'proeficiencies',
-
+                'stats',
                 'spellSlots'
             ])->findOrFail($id);
             return new CharacterResource($character);
@@ -92,16 +92,17 @@ class characterController extends Controller
                 if (! is_null($pivotSubclassId)) {
                     $attachData['subclass_id'] = $pivotSubclassId;
                 }
+
                 $character->clases()->attach($claseId, $attachData);
             }
 
             if (!empty($stats)) {
-                $syncData = [];
+                $data = [];
                 foreach ($stats as $stat) {
-                    $syncData[$stat['id']] = ['value' => $stat['value']];
+                    $data[$stat['id']] = ['value' => $stat['value']];
                 }
                 
-                $character->stats()->sync($syncData);
+                $character->stats()->sync($data);
             }
 
             return response()->json($character, 201);
@@ -124,13 +125,28 @@ class characterController extends Controller
         }
     }
 
-    public function destroy(Character $character)
+    public function disable(Character $character)
     {
         try {
-            $character->delete();
+            $character->enabled = false;
+            $character->save();
+            return response()->json(['message' => 'Personaje deshabilitado correctamente'], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Error al deshabilitar el personaje', 'error' => $e->getMessage()], 500);
+        }
+    }
+    public function destroy(Character $characterUpdateDestroy)
+    {
+        try {
+            $characterUpdateDestroy->delete();
             return response()->json(['message' => 'Personaje eliminado correctamente'], 200);
         } catch (Exception $e) {
-            return response()->json(['message' => 'Error al eliminar el personaje', 'error' => $e->getMessage()], 500);
+        return response()->json([
+            'message' => 'Error al eliminar el personaje',
+            'error'   => $e->getMessage(),
+            'line'    => $e->getLine(),
+            'file'    => $e->getFile(),
+        ], 500);
         }
     }
 }

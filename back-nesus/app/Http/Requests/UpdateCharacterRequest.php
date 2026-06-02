@@ -23,6 +23,7 @@ class UpdateCharacterRequest extends FormRequest
             'hp_temp'       => 'sometimes|integer|min:0',
             'alignment'     => 'sometimes|string',
             'image'         => 'nullable|string|max:255',
+            'enabled'       => 'sometimes|boolean',
             'race_id'       => 'nullable|integer|exists:races,id',
             'subrace_id'    => 'nullable|integer|exists:subraces,id',
             'background_id' => 'nullable|integer|exists:backgrounds,id',

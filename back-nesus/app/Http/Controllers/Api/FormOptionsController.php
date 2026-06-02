@@ -13,6 +13,17 @@ use App\Models\Stat;
 
 class FormOptionsController extends Controller
 {
+    public function index() 
+    {
+        return response()->json([
+            'races'       => Race::all()->map->only('id', 'name'),
+            'subraces'    => Subrace::all()->map->only('id', 'name', 'race_id'),
+            'backgrounds' => Background::all()->map->only('id', 'name'),
+            'classes'     => Clase::all()->map->only('id', 'name', 'hit_die'),
+            'subclasses'  => Subclass::all()->map->only('id', 'name', 'class_id'),
+            'manuals'     => Manual::all()->map->only('manual_code', 'name', 'description'),
+        ]);
+    }
     public function races()       
     { 
         return response()->json(Race::all()->map->only('id', 'name')); 

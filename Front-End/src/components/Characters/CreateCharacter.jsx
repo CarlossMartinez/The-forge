@@ -35,7 +35,7 @@ export default function CreateCharacter() {
 
     const [hpMax,     setHpMax]     = useState(1);
     const [hpCurrent, setHpCurrent] = useState(1);
-
+    
     const [statsOptions, setStatsOptions] = useState([]);
     const [statValues, setStatValues] = useState({});
 
@@ -43,24 +43,37 @@ export default function CreateCharacter() {
 
     const level = 1;
     const xp    = 0;
+    const [constModif, setConstModif] = useState(0);
+
+    useEffect(() => {
+        if (!clas || !classes.length) return;
+
+        const selectedClass = classes.find(c => c.id == clas);
+        if (!selectedClass) return;
+
+        const conValue = statValues[3] ?? 10;  // ID 3 = Constitución
+        const conMod = Math.floor((conValue - 10) / 2);
+        const hp = Math.max(1, selectedClass.hit_die + conMod);
+
+        setHpMax(hp);
+        setHpCurrent(hp);
+    }, [clas, classes, statValues]);
 
     useEffect(() => {
         async function loadOptions() {
             try {
-                const [racesRes, backgroundsRes, classesRes, manualsRes, statsRes] = await Promise.all([
-                    api.get('/races'),
-                    api.get('/backgrounds'),
-                    api.get('/classes'),
-                    api.get('/manuals'),
-                    api.get('/stats')
+                const [optionsRes, statsRes] = await Promise.all([
+                    api.get('/form-options'), // Tu nuevo endpoint unificado
+                    api.get('/stats')         // Se mantiene separado si no se unificó en el backend
                 ]);
-                setRaces(racesRes.data);
-                setBackgrounds(backgroundsRes.data);
-                setClasses(classesRes.data);
-                setManuals(manualsRes.data);
+                setRaces(optionsRes.data.races);
+                setBackgrounds(optionsRes.data.backgrounds);
+                setClasses(optionsRes.data.classes);
+                setManuals(optionsRes.data.manuals);
+
+
                 setStatsOptions(statsRes.data);
                 const initialStats = {};
-                console.log('manuals:', manualsRes.data);
                 statsRes.data.forEach(s => { initialStats[s.id] = 10; });
                 setStatValues(initialStats);
             } catch (e) {
@@ -96,20 +109,20 @@ export default function CreateCharacter() {
                 description,
                 alignment,
                 image,
-                user_id:       user.id,
-                race_id:       race       || null,
-                subrace_id:    subrace    || null,
+                user_id: user.id,
+                race_id: race || null,
+                subrace_id: subrace || null,
                 background_id: background || null,
-                clase_id:      clas       || null,
-                subclass_id:   subclass   || null,
-                manual_code:   manual     || null,
+                clase_id: clas || null,
+                subclass_id: subclass || null,
+                manual_code: manual || null,
                 level,
-                experience:    xp,
-                hp_max:     parseInt(hpMax),
+                experience: xp,
+                hp_max: parseInt(hpMax),
                 hp_current: parseInt(hpCurrent),
-                hp_temp:    0,
+                hp_temp: 0,
                 stats: Object.entries(statValues).map(([id, value]) => ({
-                    id:    parseInt(id),
+                    id: parseInt(id),
                     value: parseInt(value)
                 })),
             });
@@ -121,9 +134,14 @@ export default function CreateCharacter() {
     }
 
     if (loadingOptions) return <p>Cargando opciones...</p>;
+
     function calcMod(value) {
         const mod = Math.floor((value - 10) / 2);
         return mod >= 0 ? `+${mod}` : `${mod}`;
+    }
+    function asingnaHp(hp){
+        setHpCurrent(hp);
+        setHpMax(hp)
     }
     return (
         <>
@@ -216,14 +234,7 @@ export default function CreateCharacter() {
                             ))}
                         </select>
                     </div>
-                    <div>
-                        <label>HP Máximo</label>
-                        <input type="number" value={hpMax} min={1} onChange={e => setHpMax(e.target.value)} required />
-                    </div>
-                    <div>
-                        <label>HP Actual</label>
-                        <input type="number" value={hpCurrent} min={0} onChange={e => setHpCurrent(e.target.value)} required />
-                    </div>
+                    
                     <div className="dnd-section">
                         <p className="dnd-section-title">Estadísticas</p>
                             <div className="dnd-grid-3">
@@ -247,6 +258,10 @@ export default function CreateCharacter() {
                                 </div>
                             ))}
                         </div>
+                    </div>
+                    <div>
+                        <label>HP Máximo</label>
+                        <input type="number" value={hpMax} min={1} readOnly required />
                     </div>
                     <button type="submit">Crear personaje</button>
                 </form>

@@ -16,7 +16,7 @@ class CharacterStatResource extends JsonResource
     {
         return [
             'id'    => $this->id,
-            'value' => $this->value,
+            'value' => $this->pivot->value ?? null,
             'stat'  => new StatResource($this->whenLoaded('stat')),
         ];
     }

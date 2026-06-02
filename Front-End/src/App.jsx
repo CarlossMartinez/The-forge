@@ -21,7 +21,7 @@ export default function App() {
                     <Route element={<ProtectedRoute />}>
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/nuevoPersonaje" element={<CreateCharacter />}></Route>
-                        <Route path="/Personaje/:character" element={<CharacterDetailed />}></Route>
+                        <Route path="/Personaje/:id" element={<CharacterDetailed />}></Route>
                     </Route>
 
                     <Route path="/" element={<Navigate to="/dashboard" replace />} />

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('subrace_id')->nullable()->constrained('subraces')->onUpdate('restrict')->onDelete('restrict');
             $table->foreignId('background_id')->nullable()->constrained('backgrounds')->onUpdate('restrict')->onDelete('restrict');
             $table->string('manual_code');
+            $table->boolean('enabled')->default(true);
             $table->foreign('manual_code')
                 ->references('manual_code')
                 ->on('manuals')

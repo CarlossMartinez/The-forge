@@ -42,7 +42,8 @@ class Clase extends Model
 
     public function passives()
     {
-        return $this->belongsToMany(Passive::class, 'clase_passive')->with('level_required');
+        return $this->belongsToMany(Passive::class, 'clase_passive')
+            ->withPivot('level_required');
     }
 
     public function proeficiencies()

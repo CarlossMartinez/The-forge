@@ -106,6 +106,21 @@ class characterController extends Controller
             }
 
             $this->asignaFeatures($character);
+            $character->load([
+                'race',
+                'subrace',
+                'background',
+                'clases.subclass',
+                'subclass',
+                'manual',
+                'stats',
+                'items',
+                'spells',
+                'feats',
+                'passives', 
+                'proeficiencies',
+                'spellSlots'
+            ]);
             return response()->json($character, 201);
         } catch (Exception $e) {
             return response()->json(['message' => 'Error al crear el personaje', 'error' => $e->getMessage()], 500);

@@ -6,6 +6,7 @@ import AuthCallback from './pages/AuthCallback';
 import Dashboard from './pages/Dashboard';
 import CreateCharacter from './components/Characters/CreateCharacter';
 import CharacterDetailed from './components/Characters/CharacterDetailed';
+import CharacterSheet from './components/Characters/CharacterSheet'
 
 export default function App() {
     return (
@@ -21,7 +22,7 @@ export default function App() {
                     <Route element={<ProtectedRoute />}>
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/nuevoPersonaje" element={<CreateCharacter />}></Route>
-                        <Route path="/Personaje/:id" element={<CharacterDetailed />}></Route>
+                        <Route path="/Personaje/:id" element={<CharacterSheet />}></Route>
                     </Route>
 
                     <Route path="/" element={<Navigate to="/dashboard" replace />} />

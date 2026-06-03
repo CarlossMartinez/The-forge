@@ -40,7 +40,6 @@ export default function CreateCharacter() {
     const [statValues, setStatValues] = useState({});
 
     const [loadingOptions, setLoadingOptions] = useState(true);
-
     const level = 1;
     const xp    = 0;
     const [constModif, setConstModif] = useState(0);
@@ -133,7 +132,14 @@ export default function CreateCharacter() {
         }
     }
 
-    if (loadingOptions) return <p>Cargando opciones...</p>;
+    if (loadingOptions) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <span className="loading loading-spinner loading-lg"></span>
+                <span>Cargando tu formulario personalizado</span>
+            </div>
+        );
+    }
 
     function calcMod(value) {
         const mod = Math.floor((value - 10) / 2);

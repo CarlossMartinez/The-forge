@@ -37,7 +37,11 @@ export default function Dashboard() {
         <>
             <Navbar />
             {loading 
-            ? <p>Cargando personajes...</p>  // o un spinner
+            ? <div className="flex justify-center items-center h-screen">
+                <span className="loading loading-spinner loading-lg"/>
+                <p>Cargando tus aventureros...</p>
+                
+              </div>  // o un spinner
             : <CharacterGrid characters={characters} />
             }
         </>

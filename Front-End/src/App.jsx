@@ -5,7 +5,6 @@ import Login from './pages/Login';
 import AuthCallback from './pages/AuthCallback';
 import Dashboard from './pages/Dashboard';
 import CreateCharacter from './components/Characters/CreateCharacter';
-import CharacterDetailed from './components/Characters/CharacterDetailed';
 import CharacterSheet from './Pages/CharacterSheet'
 
 export default function App() {

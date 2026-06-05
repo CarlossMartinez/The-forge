@@ -142,7 +142,7 @@ export default function CreateCharacter() {
             <div className="max-w-2xl mx-auto px-4 py-8">
                 <div className="mb-6">
                     <p className="text-xs text-stone-500 uppercase tracking-widest mb-1">Creación</p>
-                    <h1 className="text-2xl font-bold text-stone-100">Nuevo Personaje</h1>
+                    <h1 className="text-2xl font-bold text-stone-100">Nuevo Aventurero</h1>
                 </div>
                 <form onSubmit={guardaPersonaje} className="space-y-6">
                     {/* Básicos */}

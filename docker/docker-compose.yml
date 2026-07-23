@@ -1,0 +1,56 @@
+services: 
+  postgres:
+    image: "11notes/postgres:18"
+    <<: *lockdown
+    environment:
+      TZ: "Europe/Zurich"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # make a full and compressed database backup each day at 03:00
+      POSTGRES_BACKUP_SCHEDULE: "0 3 * * *"
+      # only keep the last five backups
+      POSTGRES_BACKUP_RETENTION: 5
+    ports:
+      - "5432:5432/tcp"
+      - "9090:9187/tcp"
+    networks:
+      suite-dnd:
+    volumes:
+      - "postgres.etc:/postgres/etc"
+      - "postgres.var:/postgres/var"
+      - "postgres.backup:/postgres/backup"
+    tmpfs:
+      # needed for read-only
+      - "/postgres/run:uid=1000,gid=1000"
+      - "/postgres/log:uid=1000,gid=1000"
+    restart: "always"
+    
+  the-forge:
+    build:
+      context: ./the-forge
+      dockerfile: ./docker/the-forge/Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./the-forge:/the-forge
+    command: ["npm", "run", "dev", "--", "--host"]
+    networks:
+      - suite-dnd
+    restart: always
+
+backend:
+    build:
+      context: ./backend
+      dockerfile: ./docker/backend/Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./backend:/backend
+    command: ["npm", "run", "dev", "--", "--host"]
+    networks:
+      - suite-dnd
+    restart: always
+
+volumes:
+  postgres.etc:
+  postgres.var:
+  postgres.backup:

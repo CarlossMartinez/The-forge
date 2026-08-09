@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('system', 50)->default('DnD 5e');
             $table->enum('manual_type', ['Hombrew', 'Oficial', 'Premium'])->default('Hombrew');
             $table->timestamps();
+
+            $table->boolean('is_active')->default(true);
         });
     }
 

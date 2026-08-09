@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manual extends Model
 {
-    protected $fillable = ['code', 'description', 'system', 'manual_type'];
+    protected $fillable = ['code', 'description', 'system', 'manual_type', 'is_active'];
 
     public function classes()
     {

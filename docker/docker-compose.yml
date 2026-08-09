@@ -28,31 +28,42 @@ services:
     
   the-forge:
     build:
-      context: ../the-forge
-      dockerfile: ../docker/the-forge/Dockerfile
+      context: C:/Users/Charl/Desktop/The-forge/the-forge
+      dockerfile: C:/Users/Charl/Desktop/The-forge/the-forge/Dockerfile
     ports:
       - "5173:5173"
     volumes:
-      - ../the-forge:/the-forge
-    command: ["npm", "run", "dev", "--", "--host"]
+      - C:/Users/Charl/Desktop/The-forge/the-forge:/the-forge
+      - /the-forge/node_modules
     networks:
       - suite-dnd
     restart: always
-
 
   back-forge:
     build:
       context: ../back-forge
       dockerfile: ../docker/back-forge/Dockerfile
-    ports:
-      - "9000:9000"
     volumes:
       - ../back-forge:/back-forge
+    ports:
+      - "9000:9000"
     command: ["php-fpm"]
     networks:
       - suite-dnd
     restart: always
 
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "900:80"
+    volumes:
+      - ../back-forge:/back-forge
+      - ./back-forge/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - back-forge
+    networks:
+      - suite-dnd
+      
 volumes:
   postgres.etc:
   postgres.var:

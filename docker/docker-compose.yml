@@ -1,3 +1,8 @@
+x-lockdown: &lockdown
+  read_only: true
+  security_opt:
+    - "no-new-privileges=true"
+
 services: 
   postgres:
     image: "11notes/postgres:18"
@@ -5,47 +10,45 @@ services:
     environment:
       TZ: "Europe/Zurich"
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      # make a full and compressed database backup each day at 03:00
       POSTGRES_BACKUP_SCHEDULE: "0 3 * * *"
-      # only keep the last five backups
       POSTGRES_BACKUP_RETENTION: 5
     ports:
       - "5432:5432/tcp"
       - "9090:9187/tcp"
     networks:
-      suite-dnd:
+      - suite-dnd
     volumes:
-      - "postgres.etc:/postgres/etc"
-      - "postgres.var:/postgres/var"
-      - "postgres.backup:/postgres/backup"
+      - postgres.etc:/postgres/etc
+      - postgres.var:/postgres/var
+      - postgres.backup:/postgres/backup
     tmpfs:
-      # needed for read-only
       - "/postgres/run:uid=1000,gid=1000"
       - "/postgres/log:uid=1000,gid=1000"
-    restart: "always"
+    restart: always
     
   the-forge:
     build:
-      context: ./the-forge
-      dockerfile: ./docker/the-forge/Dockerfile
+      context: ../the-forge
+      dockerfile: ../docker/the-forge/Dockerfile
     ports:
       - "5173:5173"
     volumes:
-      - ./the-forge:/the-forge
+      - ../the-forge:/the-forge
     command: ["npm", "run", "dev", "--", "--host"]
     networks:
       - suite-dnd
     restart: always
 
-back-forge:
+
+  back-forge:
     build:
-      context: ./back-forge
-      dockerfile: ./docker/back-forge/Dockerfile
+      context: ../back-forge
+      dockerfile: ../docker/back-forge/Dockerfile
     ports:
-      - "5173:5173"
+      - "9000:9000"
     volumes:
-      - ./back-forge:/back-forge
-    command: ["npm", "run", "dev", "--", "--host"]
+      - ../back-forge:/back-forge
+    command: ["php-fpm"]
     networks:
       - suite-dnd
     restart: always
@@ -54,3 +57,6 @@ volumes:
   postgres.etc:
   postgres.var:
   postgres.backup:
+
+networks:
+  suite-dnd:

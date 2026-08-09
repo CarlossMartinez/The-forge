@@ -7,19 +7,28 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libonig-dev \
     libcurl4-openssl-dev \
-    && docker-php-ext-install pdo pdo_pgsql zip
+    libicu-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+ && docker-php-ext-configure gd --with-freetype --with-jpeg \
+ && docker-php-ext-install pdo pdo_pgsql zip intl gd bcmath
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /back-forge
 
-COPY back-forge/composer.json back-forge/composer.lock ./
+COPY composer.json composer.lock ./
 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install \
+    --no-interaction \
+    --prefer-dist \
+    --optimize-autoloader \
+    --no-scripts
 
-COPY back-forge ./
+COPY . .
 
-RUN chown -R www-data:www-data /back-forge/storage /back-forge/bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 9000
 

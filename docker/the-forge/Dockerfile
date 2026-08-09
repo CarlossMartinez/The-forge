@@ -1,11 +1,11 @@
-From node:20-alpine
+FROM node:20-alpine
 
 WORKDIR /the-forge
 
-COPY the-forge/package.json ./
+COPY package.json package-lock.json ./
 RUN npm install
 
-COPY the-forge/ ./
+COPY . .
 
 EXPOSE 5173
 

@@ -11,6 +11,16 @@ use App\Models\Character;
 use App\Http\Controllers\Api\itemController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FormOptionsController;
+use App\Http\Controllers\Api\subraceController;
+use App\Http\Controllers\Api\subclassController;
+use App\Http\Controllers\Api\backgroundController;
+use App\Http\Controllers\Api\classController;
+use App\Http\Controllers\Api\manualController;
+use App\Http\Controllers\Api\raceController;
+use App\Http\Controllers\Api\spellController;
+use App\Http\Controllers\Api\passiveController;
+use App\Http\Controllers\Api\featController;
+
 
 // para autenticar
 Route::get('/auth/github', [AuthController::class, 'redirectToGithub']);
@@ -75,4 +85,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/classes',     [FormOptionsController::class, 'classes']);
     Route::get('/subclasses',  [FormOptionsController::class, 'subclasses']);
     Route::get('/manuals',     [FormOptionsController::class, 'manuals']);
+
+    // Compedio
+        // Rutas para MANUALS
+    Route::get('/Compedium/manuals', [manualController::class, 'index']);
+    Route::get('/Compedium/manuals/{id}', [manualController::class, 'show']);
+    Route::post('/Compedium/manuals', [manualController::class, 'store']);
+    Route::patch('/Compedium/manuals/{manual}', [manualController::class, 'disable']);
+    Route::get('/Compedium/manuals/user/{userId}', [manualController::class, 'getActiveManualsByUser']);
+
+    // Rutas para FEATS
+    Route::get('/Compedium/feats', [featController::class, 'index']);
+    Route::get('/Compedium/feats/{id}', [featController::class, 'show']);
+    Route::post('/Compedium/feats', [featController::class, 'store']);
+    Route::put('/Compedium/feats/{id}', [featController::class, 'update']);
+    Route::delete('/Compedium/feats/{id}', [featController::class, 'destroy']);
+    Route::get('/Compedium/feats/manual/{manual_code}', [featController::class, 'getFeatByManual']);
 });

@@ -21,6 +21,7 @@ class ManualSeeder extends Seeder
 
         foreach ($files as $file) {
             $data = json_decode(File::get($file), true);
+            
             foreach ($data as $manual) {
                 DB::table('manuals')->insertOrIgnore([
                     'manual_code' => $manual['manual_code'],
@@ -30,6 +31,8 @@ class ManualSeeder extends Seeder
                     'manual_type' => $manual['manual_type'],
                     'created_at' => now(),
                     'updated_at' => now(),
+                    'is_active' => $manual['is_active'] ?? true,
+                    'user_id' => $manual['user_id'] ?? 1, // Asignar un valor predeterminado si no se proporciona
                 ]);
             }
         }

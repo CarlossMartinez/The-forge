@@ -19,7 +19,13 @@ return new class extends Migration
             $table->enum('manual_type', ['Hombrew', 'Oficial', 'Premium'])->default('Hombrew');
             $table->timestamps();
 
+            // Cambios para El-Compedio
             $table->boolean('is_active')->default(true);
+            $table->id('user_id');
+            $table->foreign('user_id')->references('id')
+                ->on('users')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
         });
     }
 

@@ -20,6 +20,8 @@ class UpdateManualRequest extends FormRequest
             'description' => 'sometimes|string',
             'system'      => 'sometimes|string',
             'manual_type' => 'sometimes|string|in:Hombrew,Oficial,Premium',
+            'is_active'   => 'sometimes|boolean',
+            'user_id'     => 'sometimes|exists:users,id',
         ];
     }
 }

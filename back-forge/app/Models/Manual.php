@@ -47,4 +47,9 @@ class Manual extends Model
     {
         return $this->hasMany(Spell::class, 'manual_code');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

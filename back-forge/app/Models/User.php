@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->role_id === Role::where('name', 'admin')->first()?->id;
     }
+
+    public function manuals()
+    {
+        return $this->hasMany(Manual::class);
+    }
 }

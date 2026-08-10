@@ -19,6 +19,8 @@ class StoreManualRequest extends FormRequest
             'description' => 'required|string',
             'system'      => 'sometimes|string',
             'manual_type' => 'sometimes|string|in:Hombrew,Oficial,Premium',
+            'is_active'   => 'sometimes|boolean',
+            'user_id'     => 'required|exists:users,id',
         ];
     }
 }

@@ -21,6 +21,7 @@ class ManualResource extends JsonResource
             'system'      => $this->system,
             'manual_type' => $this->manual_type,
             'is_active'   => $this->is_active,
+            'user_id'     => $this->user_id,
         ];
     }
 }

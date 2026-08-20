@@ -45,4 +45,23 @@ class raceController extends Controller
         $race->update($validatedData);
         return response()->json(['message' => 'Raza actualizada exitosamente', 'race' => $race], 200);
     }
+
+    public function destroy($id)
+    {
+        $race = Race::find($id);
+        if (!$race) {
+            return response()->json(['message' => 'Raza no encontrada'], 404);
+        }
+        $race->delete();
+        return response()->json(['message' => 'Raza eliminada exitosamente'], 200);
+    }
+    
+    public function getRaceByManual($manual_code)
+    {
+        $race = Race::where('manual_code', $manual_code)->get();
+        if (!$race) {
+            return response()->json(['message' => 'Raza no encontrada'], 404);
+        }
+        return response()->json($race, 200);
+    }
 }

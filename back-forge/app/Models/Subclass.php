@@ -15,7 +15,7 @@ class Subclass extends Model
         'name',
         'description',
         'manual_code',
-        'class_id',
+        'clase_id',
     ];
 
     public function manual()
@@ -25,7 +25,7 @@ class Subclass extends Model
 
     public function class()
     {
-        return $this->belongsTo(Clase::class, 'class_id');
+        return $this->belongsTo(Clase::class, 'clase_id');
     }
 
     public function character()

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Manual;
 use App\Http\Requests\StoreManualRequest;
+use App\Http\Requests\UpdateManualRequest;
 
 
 class manualController extends Controller
@@ -21,9 +22,9 @@ class manualController extends Controller
         return response()->json($manuals, 200);
     }
 
-    public function show($id)
+    public function show($manual_code)
     {
-        $manual = Manual::find($id);
+        $manual = Manual::where('manual_code', $manual_code)->first();
 
         if (!$manual) {
             return response()->json(['message' => 'Manual no encontrado'], 404);
@@ -57,4 +58,20 @@ class manualController extends Controller
 
         return response()->json(['message' => 'Manual creado exitosamente', 'manual' => $manual], 201);
     }
+
+    public function enable(Manual $manual)
+    {
+        $manual->update(['is_active' => true]);
+        return response()->json(['message' => 'Manual activado correctamente'], 200);
+    }
+
+    public function update(UpdateManualRequest $request, Manual $manual)
+    {
+        $validatedData = $request->validated();
+
+        $manual->update($validatedData);
+
+        return response()->json(['message' => 'Manual actualizado exitosamente', 'manual' => $manual], 200);
+    }
 }
+

@@ -15,6 +15,7 @@ class Subrace extends Model
         'name',
         'description',
         'manual_code',
+        'race_id',
     ];
 
     public function manual()

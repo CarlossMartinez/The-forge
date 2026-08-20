@@ -81,4 +81,26 @@ class statController extends Controller{
 
         return response()->json($stats, 200);
     }
+
+    public function destroy($id)
+    {
+        $stat = Stat::find($id);
+
+        if (!$stat) {
+            return response()->json(['message' => 'Stat no encontrada'], 404);
+        }
+
+        $stat->delete();
+
+        return response()->json(['message' => 'Stat eliminada exitosamente'], 200);
+    }
+
+    public function getStatByManual($manual_code)
+    {
+        $stat = Stat::where('manual_code', $manual_code)->get();
+        if (!$stat) {
+            return response()->json(['message' => 'Stat no encontrada'], 404);
+        }
+        return response()->json($stat, 200);
+    }
 }

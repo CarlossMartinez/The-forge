@@ -45,4 +45,20 @@ class ClaseController extends Controller
         $clase->update($validatedData);
         return response()->json(['message' => 'Clase actualizada exitosamente', 'Clase' => $clase], 200);
     }
+
+    public function destroy($id)
+    {
+        $clase = Clase::find($id);
+        if (!$clase) {
+            return response()->json(['message' => 'Clase no encontrada'], 404);
+        }
+        $clase->delete();
+        return response()->json(['message' => 'Clase eliminada exitosamente'], 200);
+    }
+
+    public function getClaseByManual($manual_code)
+    {
+        $clases = Clase::where('manual_code', $manual_code)->get();
+        return response()->json($clases, 200);
+    }
 }

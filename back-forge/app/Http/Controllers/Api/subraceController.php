@@ -22,7 +22,7 @@ class subraceController extends Controller
         if (!$subrace) {       
             return response()->json(['message' => 'Subraza no encontrada'], 404);
         }
-        return response()->json($race, 200);
+        return response()->json($subrace, 200);
     }
 
     public function store(StoreSubraceRequest $request)
@@ -45,4 +45,31 @@ class subraceController extends Controller
         $subrace->update($validatedData);
         return response()->json(['message' => 'Subraza actualizada exitosamente', 'subrace' => $subrace], 200);
     }
+
+    public function destroy($id)
+    {
+        $subrace = Subrace::find($id);
+        if (!$subrace) {
+            return response()->json(['message' => 'Subraza no encontrada'], 404);
+        }
+
+        $subrace->delete();
+        return response()->json(['message' => 'Subraza eliminada exitosamente'], 200);
+    }
+
+    public function getSubracesByRace($raceId)
+    {
+        $subraces = Subrace::where('race_id', $raceId)->get();
+        return response()->json($subraces, 200);
+    }
+
+    public function getSubraceByManual($manual_code)
+    {
+        $subrace = Subrace::where('manual_code', $manual_code);
+        if (!$subrace) {
+            return response()->json(['message' => 'Subraza no encontrada'], 404);
+        }
+        return response()->json($subrace, 200);
+    }
+
 }

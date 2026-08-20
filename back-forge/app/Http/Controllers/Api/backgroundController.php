@@ -45,4 +45,20 @@ class backgroundController extends Controller
         $background->update($validatedData);
         return response()->json(['message' => 'Background actualizado exitosamente', 'background' => $background], 200);
     }
+
+    public function destroy($id)
+    {
+        $background = Background::find($id);
+        if (!$background) {
+            return response()->json(['message' => 'Background no encontrado'], 404);
+        }
+        $background->delete();
+        return response()->json(['message' => 'Background eliminado exitosamente'], 200);
+    }
+
+    public function getBackgroundByManual($manual_code)
+    {
+        $backgrounds = Background::where('manual_code', $manual_code)->get();
+        return response()->json($backgrounds, 200);
+    }
 }

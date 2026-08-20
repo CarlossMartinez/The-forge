@@ -45,4 +45,23 @@ class itemController extends Controller
         $item->update($validatedData);
         return response()->json(['message' => 'Item actualizado exitosamente', 'item' => $item], 200);
     }
+
+    public function destroy($id)
+    {
+        $item = Item::find($id);
+        if (!$item) {
+            return response()->json(['message' => 'Item no encontrado'], 404);
+        }
+        $item->delete();
+        return response()->json(['message' => 'Item eliminado exitosamente'], 200);
+    }
+
+    public function getItemByManual($manual_code)
+    {
+        $items = Item::where('manual_code', $manual_code)->get();
+        if ($items->isEmpty()) {
+            return response()->json(['message' => 'No se encontraron items para el manual especificado'], 404);
+        }
+        return response()->json($items, 200);
+    }
 }

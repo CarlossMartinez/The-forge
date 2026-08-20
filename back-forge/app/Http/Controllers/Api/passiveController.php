@@ -45,4 +45,20 @@ class passiveController extends Controller
         $passive->update($validatedData);
         return response()->json(['message' => 'Pasiva actualizada exitosamente', 'passive' => $passive], 200);
     }
+
+    public function destroy($id)
+    {
+        $passive = passive::find($id);
+        if (!$passive) {
+            return response()->json(['message' => 'Pasiva no encontrada'], 404);
+        }
+        $passive->delete();
+        return response()->json(['message' => 'Pasiva eliminada exitosamente'], 200);
+    }
+
+    public function getPassiveByManual($manual_code)
+    {
+        $passives = passive::where('manual_code', $manual_code)->get();
+        return response()->json($passives, 200);
+    }
 }

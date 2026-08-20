@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('manuals', function (Blueprint $table) {
             $table->string('manual_code')->primary();
-            $table->string('name', 50)->unique();
+            $table->string('name', 50);
             $table->string('description', 1000);
             $table->string('system', 50)->default('DnD 5e');
             $table->enum('manual_type', ['Hombrew', 'Oficial', 'Premium'])->default('Hombrew');
@@ -21,9 +21,8 @@ return new class extends Migration
 
             // Cambios para El-Compedio
             $table->boolean('is_active')->default(true);
-            $table->id('user_id');
-            $table->foreign('user_id')->references('id')
-                ->on('users')
+            $table->foreignId('user_id')
+                ->constrained('users')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
         });

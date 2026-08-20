@@ -45,4 +45,20 @@ class spellController extends Controller
         $spell->update($validatedData);
         return response()->json(['message' => 'Spell actualizado exitosamente', 'spell' => $spell], 200);
     }
+
+    public function destroy($id)
+    {
+        $spell = Spell::find($id);
+        if (!$spell) {
+            return response()->json(['message' => 'Spell no encontrado'], 404);
+        }
+        $spell->delete();
+        return response()->json(['message' => 'Spell eliminado exitosamente'], 200);
+    }
+
+    public function getSpellByManual($manual_code)
+    {
+        $spells = Spell::where('manual_code', $manual_code)->get();
+        return response()->json($spells, 200);
+    }
 }

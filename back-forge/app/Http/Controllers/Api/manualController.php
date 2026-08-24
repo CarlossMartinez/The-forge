@@ -73,5 +73,11 @@ class manualController extends Controller
 
         return response()->json(['message' => 'Manual actualizado exitosamente', 'manual' => $manual], 200);
     }
+
+    public function fullManual($manual_code){
+        return Manual::with(['spells', 'races', 'feats', 'backgrounds', 'classes', 'subclasses', 'subraces', 'items', 'passives', 'stats'])
+            ->where('manual_code', $manual_code)
+            ->first();
+    }
 }
 

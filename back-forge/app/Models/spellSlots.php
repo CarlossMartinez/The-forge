@@ -16,6 +16,7 @@ class spellSlots extends Model
         'slots_used',
         'character_id',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function character()
     {

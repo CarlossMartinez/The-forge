@@ -16,6 +16,7 @@ class Proeficiencie extends Model
         'description',
         'manual_code',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function manual()
     {

@@ -30,6 +30,8 @@ class Character extends Model
         'background_id', 'clase_id', 'subclass_id', 'manual_code',
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function user()
     {
         return $this->belongsTo(user::class);

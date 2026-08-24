@@ -17,9 +17,10 @@ class Item extends Model
         'type',
         'rarity',
         'wheight',
-        'valie',
+        'value',
         'manual_code',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function manual()
     {

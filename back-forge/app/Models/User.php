@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role_id',
         'github_id',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
 
     /**

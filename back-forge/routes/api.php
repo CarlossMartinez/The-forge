@@ -33,6 +33,7 @@ Route::get('/auth/github/callback', [AuthController::class, 'handleGithubCallbac
        Route::patch('/Compedium/manuals/enable/{manual}', [manualController::class, 'enable']);
        Route::get('/Compedium/manuals/user/{userId}', [manualController::class, 'getActiveManualsByUser']);
        Route::put('/Compedium/manuals/{manual}', [manualController::class, 'update']);
+       Route::get('/Compedium/manuals/full/{manual_code}', [manualController::class, 'fullManual']);
     
        // Rutas para FEATS
        Route::get('/Compedium/feats', [featController::class, 'index']);

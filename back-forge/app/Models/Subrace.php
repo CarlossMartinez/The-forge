@@ -17,6 +17,7 @@ class Subrace extends Model
         'manual_code',
         'race_id',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function manual()
     {

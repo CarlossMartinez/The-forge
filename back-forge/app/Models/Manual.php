@@ -11,6 +11,7 @@ class Manual extends Model
     protected $keyType = 'string'; 
 
     protected $fillable = ['manual_code', 'name', 'description', 'system', 'manual_type', 'is_active', 'user_id'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function classes()
     {
@@ -20,6 +21,11 @@ class Manual extends Model
     public function subclasses()
     {
         return $this->hasMany(Subclass::class,'manual_code');
+    }
+
+    public function passives()
+    {
+        return $this->hasMany(Passive::class, 'manual_code');
     }
 
     public function races()
@@ -50,6 +56,11 @@ class Manual extends Model
     public function spells()
     {
         return $this->hasMany(Spell::class, 'manual_code');
+    }
+
+    public function stats()
+    {
+        return $this->hasMany(Stat::class, 'manual_code');
     }
 
     public function user()

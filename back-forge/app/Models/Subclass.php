@@ -17,6 +17,7 @@ class Subclass extends Model
         'manual_code',
         'clase_id',
     ];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function manual()
     {

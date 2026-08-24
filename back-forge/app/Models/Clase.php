@@ -20,6 +20,8 @@ class Clase extends Model
         'manual_code',
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
     public function manual()
     {
         return $this->belongsTo(Manual::class);

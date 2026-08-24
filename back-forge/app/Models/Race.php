@@ -21,6 +21,7 @@ class Race extends Model
     {
         return $this->belongsTo(Manual::class);
     }
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function character()
     {

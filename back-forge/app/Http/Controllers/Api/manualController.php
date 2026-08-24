@@ -75,9 +75,17 @@ class manualController extends Controller
     }
 
     public function fullManual($manual_code){
-        return Manual::with(['spells', 'races', 'feats', 'backgrounds', 'classes', 'subclasses', 'subraces', 'items', 'passives', 'stats'])
+        $manual =  Manual::with(['spells', 'races', 'feats', 'backgrounds', 'classes', 'subclasses', 'subraces', 'items', 'passives', 'stats'])
             ->where('manual_code', $manual_code)
             ->first();
+
+        foreach (['spells', 'races', 'feats', 'backgrounds', 'classes', 'subclasses', 'subraces', 'items', 'passives', 'stats'] as $r) {
+            $manual->$r->each(function ($item) {
+                $item->makeHidden(['id', 'manual_code']);
+            });
+        }
+
+        return response()->json($manual);
     }
 }
 

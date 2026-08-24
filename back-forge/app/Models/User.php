@@ -25,16 +25,13 @@ class User extends Authenticatable
         'role_id',
         'github_id',
     ];
-    protected $hidden = ['created_at', 'updated_at'];
-
-
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>
      */
     protected $hidden = [
-        'remember_token',
+        'remember_token','created_at', 'updated_at'
     ];
 
     /**

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {CompedioService} from '../../services/compedio-service'
 @Component({
   imports: [],
   selector: 'app-manual-detailed',

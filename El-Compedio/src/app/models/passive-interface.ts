@@ -3,5 +3,4 @@ export interface passive{
     name : string,
     description : string,
     manual_code : string,
-    
 }

@@ -16,12 +16,10 @@ export class ManualesComponent {
 
   private compedioService = inject(CompedioService);
 
-  manuales = signal<Manual[]>([]);
+  manuales = signal<Manual[]> ([]);
   
   cargando = signal<boolean> (true);
   
-  contador = signal<number>(0);
-
   private router = inject(Router);
 
   error = signal<string | null> (null);
@@ -29,6 +27,7 @@ export class ManualesComponent {
   constructor(){
     this.cargarManuales();
   }
+  
   cargarManuales() : void{
     this.compedioService.obtenerManuales().subscribe({
       next: (data)=>{
@@ -48,8 +47,4 @@ export class ManualesComponent {
   navegarAManual(manual_code: string): void {
     this.router.navigate(['manual', manual_code]);
   }
-  sumarClick(): void {
-    this.contador.update(valorActual => valorActual + 1);
-  }
-
 }

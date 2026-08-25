@@ -14,7 +14,7 @@
     <div class="grid">
         @for(manual of manuales(); track manual.manual_code) {
             <div class="manual">
-                <h2 class="manual-code" (click)="sumarClick()">{{ manual.manual_code }}</h2>
+                <h2 class="manual-code" (click)="navegarAManual(manual.manual_code)">{{ manual.manual_code }}</h2>
                 <p>{{ manual.name }}</p>
             </div>
         }

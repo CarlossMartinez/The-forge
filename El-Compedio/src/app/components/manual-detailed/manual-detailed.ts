@@ -1,8 +1,9 @@
 import { CompedioService } from './../../services/compedio-service';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ManualFull } from '../../models/manualFull-interface';
 import { Router } from '@angular/router';
+import { manualSections } from '../../shared/constantes/manualSection';
 
 @Component({
   imports: [],
@@ -21,26 +22,34 @@ export class ManualDetailed {
   // Mediante Inject, tengo acceso a mi Service, Al router para SPA y a la Url. en este orden 
   private CompedioService = inject(CompedioService);
 
+  // el router esta para cuando mas adelante añada crear nuevos items del manual cuando lo visualizas
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
   // Esto llevará el manual entero 
-  manualFull = signal<ManualFull[]> ([]);
+  manualFull = signal<ManualFull | null> (null);
+
+  //Esto es para las secciones, devuelve directamente los nombres
+  manualSections = computed(() =>{ 
+    return manualSections.filter(section => this.manualFull()?.[section]);
+  }) ;
 
   // ! Tratado de cargado y errores 
   cargando = signal<boolean> (true);
   error = signal<string | null> (null);
 
   manual_code : string  = ""; 
+
   constructor(){
     this.manual_code = this.route.snapshot.paramMap.get('manual_code') ?? '';
     this.cargarManualFull();
   }
+  
   /**
    * ? Para esta funcion "Necesito saber, dime tu Nombre (manual_code)"
    * @param manual_code lo recuperamos de la ruta pero lo guardaré como variable global
    */
-  cargarManualFull() : void {
+  cargarManualFull() : void{
     this.CompedioService.obtenerManualFull(this.manual_code).subscribe({
       next: (data) => {
         this.manualFull.set(data);

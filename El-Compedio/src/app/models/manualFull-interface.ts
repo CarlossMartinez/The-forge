@@ -21,7 +21,7 @@ export interface ManualFull {
     },
     races:{
         name: string,
-        descriptionn : string,
+        description : string,
     },
     subraces:{
         name : string,

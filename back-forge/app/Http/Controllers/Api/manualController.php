@@ -81,7 +81,7 @@ class manualController extends Controller
 
         foreach (['spells', 'races', 'feats', 'backgrounds', 'classes', 'subclasses', 'subraces', 'items', 'passives', 'stats'] as $r) {
             $manual->$r->each(function ($item) {
-                $item->makeHidden(['id', 'manual_code']);
+                $item->makeHidden(['manual_code']);
             });
         }
 

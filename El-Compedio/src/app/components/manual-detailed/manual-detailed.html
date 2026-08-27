@@ -1,2 +1,87 @@
-<p>manual-detailed funca {{manual_code}}
-</p>
+<!-- 
+manual_code: string;
+name: string;
+description: string;
+system: string;
+manual_type: ManualType;
+is_active: boolean;
+user_id: User;
+spells: {
+name: string;
+description: string;
+level: number;  
+school: string;
+casting_time: string;
+duration: string;
+range: string;
+components: string;
+};
+-->
+<div class="grid grid-cols-4">
+    <h1>{{manualFull()?.name}} </h1>
+    <!-- Estos de abajo quiero que sean Badges -->
+    <h3> {{manualFull()?.manual_type}}  </h3>
+    <h3> {{manualFull()?.system}} </h3>
+    <h3> {{manualFull()?.is_active}}</h3>
+</div>
+
+<div>
+    <!-- esta descripcion sera un pop up estilo Modal -->
+    <h3>{{manualFull()?.description}}</h3>
+</div>
+<div>
+    <!-- Sidebar -->
+    @for(section of manualSections(); track section) {
+        <h1>{{section}}</h1>
+    }
+</div>
+<h3></h3>
+<!-- 
+
+races: {
+    name: string;
+    description: string;
+};
+subraces: {
+    name: string;
+    description: string;
+    race_id: number;
+};
+feats : {
+    name : string,
+    description : string,
+},
+backgrounds: {
+    name : string,
+    description : string,
+},
+classes : {
+    name : string,
+    description : string,
+    hit_die : number,
+    spelcaster: boolean,
+    spellcasting_ability : string,
+},
+subclasses : {
+    name : string,
+    description : string,
+    clase_id : number,
+},
+items : {
+    name : string,
+    description : string,
+    type : string,
+    rarity : string,
+    wheight : number,
+    value : number,
+},
+passives : {
+    name : string,
+    description : string,
+},
+ stats: {
+ name: string;
+ description: string;
+}
+-->
+
